@@ -1,6 +1,9 @@
+![68747470733a2f2f692e696d6775722e636f6d2f6e5a50513949662e706e67](https://github.com/user-attachments/assets/6024983b-1d71-4d06-9ff7-9316f09994ab)
+
+
 # Event Manager for Clubs and Societies
 
-- **Team Name**: [Loops! we did it again :)]
+- **By team **: Loops! we did it again :)
 
 ## Overview
 
