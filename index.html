@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager for Clubs and Societies</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/scripts.js" defer></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Wugilan Event Management System</h1>
+            <nav class="flex items-center">
+                <ul class="flex space-x-4">
+                    <li><a href="#home" class="hover:underline">Home</a></li>
+                    <li><a href="#features" class="hover:underline">Features</a></li>
+                    <li><a href="#leaderboard" class="hover:underline">Leaderboard</a></li>
+                    <li><a href="#contact" class="hover:underline">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Buttons on the right -->
+            <div class="ml-8 flex space-x-4">
+                <div class="button-box">
+                    <a href="#login" class="bg-white text-blue-500 px-6 py-3 rounded shadow-md hover:bg-gray-200">Login as Participant</a>
+                    <a href="#login" class="bg-white text-blue-500 px-6 py-3 rounded shadow-md hover:bg-gray-200">Login as Organizer</a>
+                    <a href="signup.html" class="bg-white text-blue-500 px-6 py-3 rounded shadow-md hover:bg-gray-200">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-blue-500 text-white text-center py-20">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold">Discover. Connect. Compete.</h2>
+            <p class="mt-4">A platform to manage events for clubs and societies effortlessly.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 shadow-lg rounded">
+                    <h3 class="text-xl font-bold">Event Management</h3>
+                    <p class="mt-4">Create, update, and manage your club events seamlessly.</p>
+                </div>
+                <div class="bg-white p-6 shadow-lg rounded">
+                    <h3 class="text-xl font-bold">RSVP and Reminders</h3>
+                    <p class="mt-4">Easily RSVP to events and get notified for upcoming ones.</p>
+                </div>
+                <div class="bg-white p-6 shadow-lg rounded">
+                    <h3 class="text-xl font-bold">Leaderboard</h3>
+                    <p class="mt-4">Track your participation and compete with your peers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="bg-gray-200 py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Leaderboard</h2>
+            <div class="bg-white p-6 shadow-lg rounded">
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr class="bg-blue-500 text-white">
+                            <th class="px-4 py-2">Rank</th>
+                            <th class="px-4 py-2">Name</th>
+                            <th class="px-4 py-2">Points</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-table">
+                        <!-- Dynamic rows will be added here using JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+            <p>If you have any questions or feedback, feel free to reach out!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4">
+        <p>&copy; 2024 Wugilan Event Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
