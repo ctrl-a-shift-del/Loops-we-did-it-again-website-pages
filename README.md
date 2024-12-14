@@ -3,7 +3,7 @@
 
 # Event Manager for Clubs and Societies
 
-- **By team **: Loops! we did it again :)
+- **By team**: Loops! we did it again :)
 
 ## Overview
 
