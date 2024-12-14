@@ -1,5 +1,3 @@
-Here's a **description** and **README file** for your repository based on the hackathon problem statement:
-
 ---
 
 ### **Description for Repository:**
