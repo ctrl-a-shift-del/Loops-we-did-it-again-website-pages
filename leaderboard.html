@@ -14,10 +14,9 @@
             display: flex;
             background-color: #f9f9f9;
             color: #333;
-            height: auto; /* Allow body height to expand */
-            overflow: auto; /* Enable scrolling */
+            height: 100vh; /* Ensures the body takes the full viewport height */
+            overflow: hidden; /* Prevent body scrolling */
         }
-
 
         .sidebar {
             width: 220px;
@@ -65,8 +64,8 @@
             flex: 1;
             margin-left: 240px; /* Give space for the sidebar */
             padding: 20px;
+            height: 100vh; /* Full viewport height */
             overflow-y: auto; /* Allow scrolling in the main content */
-            height: 100vh; /* Ensure it covers the full height */
         }
 
         .main-content h2 {
