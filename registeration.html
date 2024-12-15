@@ -7,48 +7,47 @@
     <title>My Registrations - Eventra</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
-        /* Global Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
-            display: flex;
             margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: white;
+            color: #333333;
         }
 
-        /* Sidebar Styling */
+        /* Sidebar styling */
         .sidebar {
             width: 220px;
             height: 100vh;
             background-color: #212121;
             color: #fff;
             padding: 20px;
+            box-sizing: border-box;
+            position: relative;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .sidebar h1 {
             font-size: 30px;
             margin-bottom: 40px;
-            text-align: center;
             font-weight: bold;
+            text-align: center;
             color: #00e5ff;
+            cursor: pointer;
         }
 
         .sidebar button {
             width: 100%;
             padding: 12px;
             margin: 15px 0;
-            font-size: 16px;
-            font-weight: 500;
-            color: #fff;
             background-color: #424242;
             border: none;
-            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
+            border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s;
         }
 
@@ -57,59 +56,73 @@
             transform: translateY(-2px);
         }
 
-        /* Main Content */
+        /* Main content container */
         .main-content {
             flex: 1;
-            margin: 10px 20px;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            margin-left: 10px;
+            margin-right: 20px;
+            padding: 0px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            overflow-x: auto;
         }
 
-        .main-content h2 {
-            font-size: 28px;
-            color: #333;
-        }
-
+        /* Registration container for horizontal scrolling */
         .registration-container {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex-direction: row;
+            gap: 20px;
+            padding: 10px 0;
+            width: 100%;
+            overflow-x: auto;
+            height: 100vh;
+            box-sizing: border-box;
         }
 
+        /* Registration box styling */
         .registration-box {
-            padding: 15px;
-            background-color: #fff;
-            border: 1px solid #ddd;
+            width: 500px;
+            height: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .registration-box h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-            color: #000;
-        }
-
-        .registration-box p {
-            margin: 3px 0;
-            color: #555;
-        }
-
-        .registration-box button {
-            margin-top: 8px;
-            padding: 8px 12px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            min-width: 350px;
+            color: #333333;
+            transition: all 0.3s ease;
         }
 
-        .registration-box button:hover {
-            background-color: #0056b3;
+        .registration-box:hover {
+            background-color: #f1f1f1;
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Registration details */
+        .registration-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .registration-details {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Ensure horizontal scrolling works smoothly on mouse scroll */
+        .main-content {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .main-content::-webkit-scrollbar {
+            display: none;
         }
 
         /* Responsive Design */
@@ -118,15 +131,15 @@
                 width: 160px;
             }
 
-            .registration-box h3 {
-                font-size: 18px;
+            .registration-box {
+                width: 100%;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Sidebar -->
+
     <div class="sidebar">
         <h1 onclick="window.location.href='home.html'">Evèntra</h1>
         <button onclick="window.location.href='registeration.html'">My Registrations</button>
@@ -134,30 +147,25 @@
         <button onclick="window.location.href='profile.html'">Profile</button>
     </div>
 
-    <!-- Main Content -->
     <div class="main-content">
-        <h2>My Registrations</h2>
         <div class="registration-container">
-            <!-- Event 1 -->
             <div class="registration-box" onclick="alert('Event details coming soon!')">
-                <h3>Title 1</h3>
-                <p><strong>Date:</strong> 30/12/2024</p>
-                <p><strong>Time:</strong> 12:00 PM to 02:00 PM</p>
-                <p><strong>Venue:</strong> Convention Center</p>
-                <p><strong>Status:</strong> Live</p>
+                <div class="registration-title">Event Title 1</div>
+                <div class="registration-details">Date: 30/12/2024</div>
+                <div class="registration-details">Time: 12:00 PM to 02:00 PM</div>
+                <div class="registration-details">Venue: Convention Center</div>
+                <div class="registration-details">Status: Live</div>
             </div>
-    
-            <!-- Event 2 -->
             <div class="registration-box" onclick="alert('Event details coming soon!')">
-                <h3>Title 2</h3>
-                <p><strong>Date:</strong> 02/01/2025</p>
-                <p><strong>Time:</strong> 10:00 AM to 01:00 PM</p>
-                <p><strong>Venue:</strong> Auditorium Hall</p>
-                <p><strong>Status:</strong> Expired</p>
+                <div class="registration-title">Event Title 2</div>
+                <div class="registration-details">Date: 02/01/2025</div>
+                <div class="registration-details">Time: 10:00 AM to 01:00 PM</div>
+                <div class="registration-details">Venue: Auditorium Hall</div>
+                <div class="registration-details">Status: Expired</div>
             </div>
         </div>
     </div>
-    
+
 </body>
 
 </html>
