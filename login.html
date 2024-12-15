@@ -34,31 +34,46 @@
         /* Centered header styling */
         h1 {
             font-size: 70px;
-            font-weight:900;
-            color: black; /* Cyan color */
+            font-weight: 900;
+            color: black;
             text-align: center;
-            margin-top: 0%;
+            margin-top: 0;
             margin-bottom: 20px;
             z-index: 1; /* Ensure it's above other elements */
         }
 
-        .login-container {
-        background-color: rgba(255, 255, 255, 0.8); /* Light background to make text readable */
-        padding: 15px;  /* Reduced padding */
-        border-radius: 10px;  /* Slightly smaller border radius */
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Slightly smaller shadow */
-        width: 100%;
-        max-width: 400px;  /* Reduced max-width */
-        box-sizing: border-box;
-}
+        /* Pop-up animation */
+        @keyframes popup {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
 
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Light background to make text readable */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            animation: popup 0.8s ease-out;
+        }
 
         .login-title {
             font-size: 26px;
             font-weight: bold;
             text-align: center;
-            color: #00e5ff; /* Cyan color */
-            margin-bottom: 30px;
+            color: #00e5ff;
+            margin-bottom: 20px;
         }
 
         .input-field {
@@ -72,7 +87,7 @@
         }
 
         .input-field:focus {
-            border-color: #00e5ff; /* Cyan color */
+            border-color: #00e5ff;
             outline: none;
         }
 
@@ -80,7 +95,7 @@
             width: 100%;
             padding: 12px;
             margin-top: 20px;
-            background-color: #00e5ff; /* Cyan color */
+            background-color: #00e5ff;
             border: none;
             color: #fff;
             font-size: 16px;
@@ -91,7 +106,7 @@
         }
 
         .login-button:hover {
-            background-color: #00b8cc; /* Darker cyan */
+            background-color: #00b8cc;
         }
 
         .signup-link {
@@ -127,7 +142,7 @@
         <form action="dashboard.html" method="POST">
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
-            <button type="submit" class="login-button" button onclick="window.location.href='home.html'">Login</button>
+            <button type="submit" class="login-button">Login</button>
         </form>
 
         <div class="signup-link">
