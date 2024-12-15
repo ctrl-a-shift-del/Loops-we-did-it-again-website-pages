@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event - Eventra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: white;
+            color: #333333;
+            height: 100vh;
+            overflow: auto; /* Allow scrolling of the entire page */
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background-color: #212121;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h1 {
+            font-size: 30px;
+            margin-bottom: 40px;
+            font-weight: bold;
+            text-align: center;
+            color: #00e5ff; /* Cyan color */
+            cursor: pointer;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            background-color: #424242;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .sidebar button:hover {
+            background-color: #00e5ff; /* Cyan color */
+            transform: translateY(-2px);
+        }
+
+        /* Main content container */
+        .main-content {
+            margin-left: 220px;
+            margin-right: 0px;
+             /* Adjusted for sidebar width */
+            padding: 10px;
+            width: calc(110% - 240px); /* Adjust content width */
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #f7f7f7;
+            overflow-y: auto; /* Allow vertical scrolling for content */
+            max-height: 100vh; /* Ensure it stays within viewport height */
+        }
+
+        .create-event-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px; /* Increase max-width */
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .create-event-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00e5ff; /* Cyan color */
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus {
+            border-color: #00e5ff; /* Cyan color */
+            outline: none;
+        }
+
+        .input-field.large {
+            height: 100px; /* Larger height for venue and description */
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #00e5ff; /* Cyan color */
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #00b8cc; /* Darker cyan */
+        }
+
+        .media-button {
+            background-color:white;
+            color: #4CAF50;
+            border: 2px solid green ;
+            width: 150px; /* Set width of media button to 100px */
+            /* Green for media button */
+        }
+
+        .media-button:hover {
+            background-color: #45a049;
+            color: white;
+            border: 2px solid #4CAF50;/* Darker green */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .date-input-group, .time-input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 160px;
+            }
+
+            .main-content {
+                margin-left: 180px; /* Adjusted for smaller sidebar */
+                width: calc(100% - 180px);
+            }
+
+            .create-event-container {
+                width: 100%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <!-- Sidebar with Admin buttons -->
+        <h1 onclick="window.location.href='home.html'">Evèntra</h1>
+        <button onclick="window.location.href='create-event.html'">Create Event</button>
+        <button onclick="window.location.href='created-events.html'">My Events</button>
+        <button onclick="window.location.href='clubprofile.html'">Club Profile</button>
+    </div>
+
+    <div class="main-content">
+        <div class="create-event-container">
+            <div class="create-event-title">Create Event</div>
+
+            <form action="event-created.html" method="POST">
+                <div class="form-group">
+                    <label for="event-name">Event Name:</label>
+                    <input type="text" id="event-name" class="input-field" name="event-name" placeholder="Enter event name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="event-date">Date:</label><br> <!-- Added line break here -->
+                    <div class="date-input-group">
+                        <label for="start-date">From:</label>
+                        <input type="date" id="start-date" class="input-field" name="start-date" required>
+                        <label for="end-date">To:</label>
+                        <input type="date" id="end-date" class="input-field" name="end-date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="event-time">Time:</label><br> <!-- Added line break here -->
+                    <div class="time-input-group">
+                        <label for="start-time">From:</label>
+                        <input type="time" id="start-time" class="input-field" name="start-time" required>
+                        <label for="end-time">To:</label>
+                        <input type="time" id="end-time" class="input-field" name="end-time" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="venue">Venue:</label>
+                    <textarea id="venue" class="input-field large" name="venue" placeholder="Enter event venue" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" class="input-field large" name="description" placeholder="Enter event description" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Attach media:</label><br>
+                    <button type="button" class="button media-button" onclick="document.getElementById('media').click();">Attach Media</button>
+                    <input type="file" id="media" name="media" style="display:none;" multiple>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="button">Create Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

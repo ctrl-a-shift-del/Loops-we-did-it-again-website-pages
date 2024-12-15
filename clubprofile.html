@@ -18,17 +18,16 @@
             overflow: hidden; /* Prevents body scrolling */
         }
 
-        /* Sidebar Styling */
+        /* Sidebar styling */
         .sidebar {
             width: 220px;
-            height: 100vh; /* Full height */
+            height: 100vh;
             background-color: #212121;
             color: #fff;
             padding: 20px;
+            box-sizing: border-box;
+            position: relative;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-            position: fixed; /* Keeps it fixed on the left */
-            left: 0;
-            top: 0;
         }
 
         .sidebar h1 {
@@ -48,19 +47,22 @@
             border: none;
             color: #fff;
             font-size: 16px;
-            border-radius: 8px;
+            font-weight: 500;
             cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .sidebar button:hover {
-            background-color: #00e5ff;
+            background-color: #00e5ff; /* Cyan color */
+            transform: translateY(-2px);
         }
 
         /* Main Content Styling */
         .main-content {
             flex: 1;
-            margin-left: 260px; /* Creates space for the fixed sidebar */
-            padding: 20px;
+            margin-left: 0%; /* Creates space for the fixed sidebar */
+            padding: 10px;
             height: 100vh; /* Full viewport height */
             overflow-y: auto; /* Enables scrolling only for this section */
             box-sizing: border-box;
