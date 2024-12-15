@@ -91,59 +91,54 @@
         }
 
         .login-button:hover {
-            background-color: white; /* Change background to white */
-            color: black; /* Change text to black */
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
-        }
+             background-color:white ;/* Change background to white */ 
+             color:black ;/* Change text to black */ 
+             transform :translateY(-3 px); 
+             box-shadow :0
+             rgba(255,255,255,.6);
+             /* Glow effect on hover */ 
+         }
 
-        .signup-link {
-            text-align: center;
-            margin-top: 20px;
-        }
+         .signup-link {text-align:center;margin-top:
+         (20 px);} 
 
-        .signup-link a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+         .signup-link a {color:white;text-decoration:none;font-weight:bold;} 
 
-        .signup-link a:hover {
-            transform: scale(1.1); /* Slight zoom effect */
-            color: #fff; /* Make it brighter */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add a glow effect */
-            transition: transform 0.3s, text-shadow 0.3s; /* Smooth animation */
-        }
+         .signup-link a:hover {transform:
+         scale(1.1);/* Slight zoom effect */ 
+         color:#fff ;/* Make it brighter */ 
+         text-shadow :0
+         rgba(255,255,255,.8);/* Add a glow effect */ 
+         transition :transform .3s , text-shadow .3s ;/* Smooth animation */ 
+     }
 
-        /* Responsive styling for smaller screens */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 50px;
-            }
+     @media (max-width :600px) { 
+         h1 { 
+             font-size :50px ; 
+         } 
 
-            .login-container {
-                padding: 15px;
-                max-width: 90%;
-            }
+         .login-container { 
+             padding :15px ; 
+             max-width :90% ; 
+         } 
 
-            .login-title {
-                font-size: 22px;
-            }
+         .login-title { 
+             font-size :22px ; 
+         } 
 
-            .input-field {
-                font-size: 14px;
-            }
+         .input-field { 
+             font-size :14px ; 
+         } 
 
-            .login-button {
-                font-size: 14px;
-            }
-        }
+         .login-button { 
+             font-size :14px ; 
+         } 
+     }
     </style>
 </head>
-
 <body>
     <h1>
-        <span style="color: #4285F4;">E</span><span style="color: #EA4335;">v</span><span style="color: #FBBC05;">è</span><span style="color: #34A853;">n</span><span style="color: #EA4335;">t</span><span style="color: #FBBC05;">r</span><span style="color: #4285F4;">a</span>
+        <span style="color:#4285F4;">E</span><span style="color:#EA4335;">v</span><span style="color:#FBBC05;">è</span><span style="color:#34A853;">n</span><span style="color:#EA4335;">t</span><span style="color:#FBBC05;">r</span><span style="color:#4285F4;">a</span>
     </h1>
     
     <div class="login-container">
@@ -163,11 +158,11 @@
         document.getElementById('loginForm').addEventListener('submit', async function(event) {
             event.preventDefault(); // Prevent default form submission
 
-            const email = document.querySelector('input[name="email"]').value;
-            const password = document.querySelector('input[name="password"]').value;
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const password = document.querySelector('input[name="password"]').value.trim();
 
             try {
-                const response = await fetch('http://localhost:3000/api/users/login', { // Ensuring it's the user login endpoint
+                const response = await fetch('http://localhost/api/users/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -184,7 +179,7 @@
                 }
             } catch (error) {
                 console.error('Error during login:', error);
-                alert('An error occurred. Please try again.'); // Handle errors
+                alert('An error occurred. Please try again.');
             }
         });
     </script>

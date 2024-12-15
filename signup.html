@@ -33,14 +33,8 @@
 
         /* Keyframes for fade-in animation */
         @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         /* Sign-Up container styling */
@@ -96,125 +90,107 @@
         }
 
         .signup-button:hover {
-            background-color: white; /* Change background to white */
-            color: black; /* Change text to black */
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
-        }
-
-        .signin-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .signin-link a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .signin-link a:hover {
-            transform: scale(1.1); /* Slight zoom effect */
-            color: #fff; /* Make it brighter */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add a glow effect */
-            transition: transform 0.3s, text-shadow 0.3s; /* Smooth animation */
-        }
-
-        /* Responsive styling for smaller screens */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 50px;
-            }
-
-            .signup-container {
-                padding: 15px;
-                max-width: 90%;
-            }
-
-            .signup-title {
-                font-size: 22px;
-            }
-
-            .input-field {
-                font-size: 14px;
-             }
-
-             .signup-button {
-                 font-size :14 px ;
-             }
+             background-color:white ;/* Change background to white */ 
+             color:black ;/* Change text to black */ 
+             transform :translateY(-3 px); 
+             box-shadow :0
+             rgba(255,255,255,.6);
+             /* Glow effect on hover */ 
          }
-     </style>
- </head>
- <body>
 
-     <h1>
-         <span style="color:#4285F4;">E</span><span style="color:#EA4335;">v</span><span style="color:#FBBC05;">è</span><span style="color:#34A853;">n</span><span style="color:#EA4335;">t</span><span style="color:#FBBC05;">r</span><span style="color:#4285F4;">a</span>
-     </h1>
+         .signin-link {text-align:center;margin-top:
+         (20 px);} 
 
-     <div class="signup-container">
-         <div class="signup-title">Sign Up</div>
+         .signin-link a {color:white;text-decoration:none;font-weight:bold;} 
 
-         <form id="signupForm">
-             <input type="text" class="input-field" name="name" placeholder="Enter your name" required>
-             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
-             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
-             <input type="password" class="input-field" name="confirm-password" placeholder="Re-enter your password" required>
-             <button type="submit" class="signup-button">Sign up</button>
-         </form>
+         .signin-link a:hover {transform:
+         scale(1.1);/* Slight zoom effect */ 
+         color:#fff ;/* Make it brighter */ 
+         text-shadow :0
+         rgba(255,255,255,.8);/* Add a glow effect */ 
+         transition :transform .3s , text-shadow .3s ;/* Smooth animation */ 
+     }
 
-         <div class="signin-link">
-             <p>Already have an account? <a href="login.html">Sign in here</a></p>
-         </div>
-     </div>
+     @media (max-width :600px) { 
+         h1 { 
+             font-size :50px ; 
+         } 
 
-     <script>
-         document.getElementById('signupForm').addEventListener('submit', async function(event) {
-             event.preventDefault(); // Prevent default form submission
+         .signup-container { 
+             padding :15px ; 
+             max-width :90% ; 
+         } 
 
-             const name = document.querySelector('input[name="name"]').value.trim();
-             const email = document.querySelector('input[name="email"]').value.trim();
-             const password = document.querySelector('input[name="password"]').value;
+         .signup-title { 
+             font-size :22px ; 
+         } 
 
-             try {
-                 // Check if the email already exists
-                 const checkResponse = await fetch('http://localhost:3000/api/users/check-email', {
-                     method:'POST',
-                     headers:{
-                         'Content-Type': 'application/json'
-                     },
-                     body : JSON.stringify({ email })
-                 });
+         .input-field { 
+             font-size :14px ; 
+         } 
 
-                 const checkData = await checkResponse.json();
+         .signup-button { 
+             font-size :14px ; 
+         } 
+     }
+    </style>
+</head>
+<body>
+    <h1>
+        <span style="color:#4285F4;">E</span><span style="color:#EA4335;">v</span><span style="color:#FBBC05;">è</span><span style="color:#34A853;">n</span><span style="color:#EA4335;">t</span><span style="color:#FBBC05;">r</span><span style="color:#4285F4;">a</span>
+    </h1>
 
-                 if (!checkResponse.ok) {
-                     // If email exists, show error message
-                     alert(checkData.error || 'Email already exists. Please use a different email.');
-                     return; // Exit early
-                 }
+    <div class="signup-container">
+        <div class="signup-title">Sign Up</div>
 
-                 // Proceed to sign up if email does not exist
-                 const response = await fetch('http://localhost:3000/api/users/signup', {
-                     method:'POST',
-                     headers:{
-                         'Content-Type': 'application/json'
-                     },
-                     body : JSON.stringify({ name, email, password })
-                 });
+        <form id="signupForm">
+            <input type="text" class="input-field" name="name" placeholder="Enter your name" required>
+            <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
+            <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
+            <input type="password" class="input-field" name="confirm-password" placeholder="Re-enter your password" required>
+            <button type="submit" class="signup-button">Sign up</button>
+        </form>
 
-                 const data = await response.json();
+        <div class="signin-link">
+            <p>Already have an account? <a href="login.html">Sign in here</a></p>
+        </div>
+    </div>
 
-                 if (response.ok) {
-                     window.location.href = 'home.html'; // Redirect to home if successful
-                 } else {
-                     alert(data.error || 'Signup failed'); // Show error message
-                 }
-             } catch (error) {
-                 console.error('Error during signup:', error);
-                 alert('An error occurred. Please try again.'); // Alert on exception
-             }
-         });
-     </script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
 
- </body>
- </html>
+            const name = document.querySelector('input[name="name"]').value.trim();
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const password = document.querySelector('input[name="password"]').value;
+            const confirmPassword = document.querySelector('input[name="confirm-password"]').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost/api/users/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    window.location.href = 'home.html'; // Redirect to home if successful
+                } else {
+                    alert(data.error || 'Signup failed'); // Show error message
+                }
+            } catch (error) {
+                console.error('Error during signup:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
