@@ -125,77 +125,96 @@
             h1 {
                 font-size: 50px;
             }
+
             .signup-container {
                 padding: 15px;
                 max-width: 90%;
             }
+
             .signup-title {
                 font-size: 22px;
             }
+
             .input-field {
                 font-size: 14px;
-            }
-            .signup-button {
-                font-size: 14px;
-            }
-        }
-    </style>
-</head>
-<body>
+             }
 
-    <!-- Header with "Eventra" -->
-    <h1>
-        <span style="color: #4285F4;">E</span><span style="color: #EA4335;">v</span><span style="color: #FBBC05;">è</span><span style="color: #34A853;">n</span><span style="color: #EA4335;">t</span><span style="color: #FBBC05;">r</span><span style="color: #4285F4;">a</span>
-    </h1>
+             .signup-button {
+                 font-size :14 px ;
+             }
+         }
+     </style>
+ </head>
+ <body>
 
-    <!-- Sign-Up container -->
-    <div class="signup-container">
-        <div class="signup-title">Sign Up</div>
+     <h1>
+         <span style="color:#4285F4;">E</span><span style="color:#EA4335;">v</span><span style="color:#FBBC05;">è</span><span style="color:#34A853;">n</span><span style="color:#EA4335;">t</span><span style="color:#FBBC05;">r</span><span style="color:#4285F4;">a</span>
+     </h1>
 
-        <form id="signupForm">
-            <input type="text" class="input-field" name="name" placeholder="Enter your name" required>
-            <input type="text" class="input-field" name="clubname" placeholder="Enter your Club name" required>
-            <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
-            <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
-            <input type="password" class="input-field" name="confirm-password" placeholder="Re-enter your password" required>
-            <button type="submit" class="signup-button">Sign up</button>
-        </form>
+     <div class="signup-container">
+         <div class="signup-title">Sign Up</div>
 
-        <div class="signin-link">
-            <p>Already have an account? <a href="login.html">Sign in here</a></p>
-        </div>
-    </div>
+         <form id="signupForm">
+             <input type="text" class="input-field" name="name" placeholder="Enter your name" required>
+             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
+             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
+             <input type="password" class="input-field" name="confirm-password" placeholder="Re-enter your password" required>
+             <button type="submit" class="signup-button">Sign up</button>
+         </form>
 
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent default form submission
+         <div class="signin-link">
+             <p>Already have an account? <a href="login.html">Sign in here</a></p>
+         </div>
+     </div>
 
-            const name = document.querySelector('input[name="name"]').value;
-            const clubname = document.querySelector('input[name="clubname"]').value;
-            const email = document.querySelector('input[name="email"]').value;
-            const password = document.querySelector('input[name="password"]').value;
+     <script>
+         document.getElementById('signupForm').addEventListener('submit', async function(event) {
+             event.preventDefault(); // Prevent default form submission
 
-            try {
-                const response = await fetch('http://localhost:3000/api/users/signup', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ name, clubname, email, password })
-                });
+             const name = document.querySelector('input[name="name"]').value.trim();
+             const email = document.querySelector('input[name="email"]').value.trim();
+             const password = document.querySelector('input[name="password"]').value;
 
-                const data = await response.json();
+             try {
+                 // Check if the email already exists
+                 const checkResponse = await fetch('http://localhost:3000/api/users/check-email', {
+                     method:'POST',
+                     headers:{
+                         'Content-Type': 'application/json'
+                     },
+                     body : JSON.stringify({ email })
+                 });
 
-                if (response.ok) {
-                    window.location.href = 'adminhome.html'; // Redirect to admin home if successful
-                } else {
-                    alert(data.error || 'Signup failed'); // Show error message
-                }
-            } catch (error) {
-                console.error('Error during signup:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
-    </script>
-</body>
-</html>
+                 const checkData = await checkResponse.json();
+
+                 if (!checkResponse.ok) {
+                     // If email exists, show error message
+                     alert(checkData.error || 'Email already exists. Please use a different email.');
+                     return; // Exit early
+                 }
+
+                 // Proceed to sign up if email does not exist
+                 const response = await fetch('http://localhost:3000/api/users/signup', {
+                     method:'POST',
+                     headers:{
+                         'Content-Type': 'application/json'
+                     },
+                     body : JSON.stringify({ name, email, password })
+                 });
+
+                 const data = await response.json();
+
+                 if (response.ok) {
+                     window.location.href = 'home.html'; // Redirect to home if successful
+                 } else {
+                     alert(data.error || 'Signup failed'); // Show error message
+                 }
+             } catch (error) {
+                 console.error('Error during signup:', error);
+                 alert('An error occurred. Please try again.'); // Alert on exception
+             }
+         });
+     </script>
+
+ </body>
+ </html>

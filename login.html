@@ -42,6 +42,7 @@
             background-color: #0f0f0f; /* Dark grey container */
             padding: 20px;
             border-radius: 10px;
+            box-shadow: none; /* No initial glow */
             width: 100%;
             max-width: 400px;
             box-sizing: border-box;
@@ -60,28 +61,28 @@
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            border: none; 
+            border: none; /* No border */
             border-radius: 8px;
             font-size: 16px;
             box-sizing: border-box;
-            background-color: #222; 
-            color: white; 
-            transition: transform 0.3s ease;
+            background-color: #222; /* Darker input background */
+            color: white; /* White text */
+            transition: transform 0.3s ease; /* Smooth scale transition */
         }
 
         .input-field:hover,
         .input-field:focus {
-            transform: scale(1.03); 
-            outline: none; 
+            transform: scale(1.03); /* Slight pop-up effect */
+            outline: none; /* Remove default outline */
         }
 
         .login-button {
             width: 100%;
             padding: 12px;
             margin-top: 20px;
-            background-color: black; 
+            background-color: black; /* Initial background */
             border: none;
-            color: white; 
+            color: white; /* Initial text color */
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -90,10 +91,10 @@
         }
 
         .login-button:hover {
-            background-color: white; 
-            color: black; 
+            background-color: white; /* Change background to white */
+            color: black; /* Change text to black */
             transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
         }
 
         .signup-link {
@@ -108,10 +109,10 @@
         }
 
         .signup-link a:hover {
-            transform: scale(1.1); 
-            color: #fff; 
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
-            transition: transform 0.3s, text-shadow 0.3s; 
+            transform: scale(1.1); /* Slight zoom effect */
+            color: #fff; /* Make it brighter */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add a glow effect */
+            transition: transform 0.3s, text-shadow 0.3s; /* Smooth animation */
         }
 
         /* Responsive styling for smaller screens */
@@ -166,7 +167,7 @@
             const password = document.querySelector('input[name="password"]').value;
 
             try {
-                const response = await fetch('http://localhost:3000/api/users/login', {
+                const response = await fetch('http://localhost:3000/api/users/login', { // Ensuring it's the user login endpoint
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -183,7 +184,7 @@
                 }
             } catch (error) {
                 console.error('Error during login:', error);
-                alert('An error occurred. Please try again.');
+                alert('An error occurred. Please try again.'); // Handle errors
             }
         });
     </script>
