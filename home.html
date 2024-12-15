@@ -5,21 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Eventra</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+        /* Original CSS styles - retain these */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
             background-color: #f4f4f9;
-            color: #333333;
-            transition: margin-left 0.3s ease;
-            background-color: white; /* White background */
-            color: #333333; /* Default text color */
+            color: #333;
+            display: flex;
         }
 
-        /* Sidebar styling */
+        /* Sidebar styles */
         .sidebar {
             width: 220px;
             height: 100vh;
@@ -29,41 +26,14 @@
             box-sizing: border-box;
             position: relative;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
         }
 
-        /* Eventra logo animation */
         .sidebar h1 {
             font-size: 30px;
             margin-bottom: 40px;
             font-weight: bold;
             text-align: center;
-            color: #00e5ff;
-            cursor: pointer;
-            transition: color 0.3s ease, transform 0.6s ease-in-out;
-            opacity: 0; /* Initially hidden */
-            transform: scale(0.8); /* Start with smaller size */
-        }
-
-        .sidebar h1:hover {
-            color: #80d5ff;
-        }
-
-        /* Scale-up animation */
-        @keyframes scaleUp {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* Trigger the animation */
-        .sidebar h1 {
-            animation: scaleUp 0.6s ease-out forwards;
+            color: #00e5ff; /* Cyan color */
         }
 
         .sidebar button {
@@ -78,161 +48,39 @@
             cursor: pointer;
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .sidebar button:hover {
-            background-color: #00e5ff;
+            background-color: #616161;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar .material-icons {
-            font-size: 20px;
-        }
-
-        /* Main content container */
-        .main-content {
-            flex: 1;
-            margin-left: 10px;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            overflow-x: auto;
-            background-color: #ffffff;
-        }
-
-        /* Event container for horizontal scrolling */
-        .event-container {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            padding: 10px 0;
-            width: 100%;
-            overflow-x: auto;
-            height: auto;
-        }
-
-        /* Event box styling */
-        .event-box {
-            width: 500px;
-            height: auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
-            min-width: 350px;
-            color: #333;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .event-box-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .event-box-header .material-icons {
-            font-size: 26px;
-            color: #00e5ff;
-        }
-
-        /* Hover effect for event box */
-        .event-box:hover {
-            background-color: #f1f1f1;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Event details styling */
-        .event-title {
-            font-size: 22px;
-            font-weight: bold;
-            color: #00e5ff;
-            margin-bottom: 10px;
-        }
-
-        .event-details {
-            font-size: 14px;
-            margin-bottom: 5px;
-            color: #666;
-        }
-
-        .event-description {
-            font-size: 14px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            line-clamp: 5;
-            -webkit-box-orient: vertical;
-            color: #777;
-        }
-
-        .main-content::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 160px;
-            }
-
-            .main-content {
-                margin-left: 160px;
-            }
-
-            .event-box {
-                width: 100%;
-            }
         }
     </style>
 </head>
 <body>
-
     <div class="sidebar">
-        <h1 onclick="window.location.href='home.html'">Evèntra</h1>
-        <button onclick="window.location.href='registeration.html'"><span class="material-icons">event_note</span>My Registrations</button>
-        <button onclick="window.location.href='leaderboard.html'"><span class="material-icons">leaderboard</span>Leaderboard</button>
-        <button onclick="window.location.href='profile.html'"><span class="material-icons">person</span>Profile</button>
+        <h1>User Dashboard</h1>
+        <button id="leaderboard">Leaderboard</button>
+        <button id="myRegistrations">My Registrations</button>
+        <button id="profile">Profile</button>
     </div>
 
-    <div class="main-content">
-        <div class="event-container">
-            <!-- Event Boxes -->
-            <div class="event-box" onclick="alert('Under construction')">
-                <div class="event-box-header">
-                    <span class="material-icons">event</span>
-                    <div class="event-title">Event Title 1</div>
-                </div>
-                <div class="event-details">Date: 30/12/2024 to 31/12/2024</div>
-                <div class="event-details">Time: 12:00 PM to 12:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
-            </div>
-            <div class="event-box" onclick="alert('Under construction')">
-                <div class="event-box-header">
-                    <span class="material-icons">event</span>
-                    <div class="event-title">Event Title 2</div>
-                </div>
-                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
-                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
-            </div>
-        </div>
+    <div class="content" style="margin-left: 240px; padding: 20px;">
+        <h2>Welcome, User!</h2>
+        <p>Select an option from the sidebar to manage your events.</p>
     </div>
 
+    <script>
+        document.getElementById('leaderboard').onclick = function() {
+            window.location.href = 'leaderboard.html'; // Redirect to leaderboard page
+        };
+
+        document.getElementById('myRegistrations').onclick = function() {
+            window.location.href = 'registeration.html'; // Redirect to my registrations page
+        };
+
+        document.getElementById('profile').onclick = function() {
+            window.location.href = 'profile.html'; // Redirect to profile page
+        };
+    </script>
 </body>
 </html>
