@@ -12,42 +12,47 @@
             padding: 0;
             display: flex;
             transition: margin-left 0.3s ease;
+            background-color: white; /* White background */
+            color: #333333; /* Default text color */
         }
 
         /* Sidebar styling */
         .sidebar {
-            width: 210px;
-            height: auto;
-            background-color: black;
-            color: white;
+            width: 220px;
+            height: 100vh;
+            background-color: #212121;
+            color: #fff;
             padding: 20px;
             box-sizing: border-box;
             position: relative;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .sidebar h1 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            margin-top: 0px;
-            margin-left: 15px;
+            font-size: 30px;
+            margin-bottom: 40px;
             font-weight: bold;
+            text-align: center;
+            color: #00e5ff; /* Cyan color */
         }
 
         .sidebar button {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            background-color: transparent;
-            border: 1px solid white;
-            color: white;
+            padding: 12px;
+            margin: 15px 0;
+            background-color: #424242;
+            border: none;
+            color: #fff;
             font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
             border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .sidebar button:hover {
-            background-color: white;
-            color: black;
+            background-color: #00e5ff; /* Cyan color */
+            transform: translateY(-2px);
         }
 
         /* Main content container */
@@ -80,19 +85,35 @@
             width: 500px; /* Fixed width for event box */
             height: 100%; /* Full height of the container */
             padding: 20px;
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
+            background-color: #ffffff; /* White background for event boxes */
+            border: 1px solid #cccccc; /* Subtle border */
             border-radius: 8px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
             min-width: 350px; /* Prevent shrinking */
+            color: #333333; /* Text color */
+            transition: all 0.3s ease;
         }
 
         /* Styling for event box when hovered */
         .event-box:hover {
-            background-color: #e0e0e0;
+            background-color: #f1f1f1; /* Light grey background on hover */
+            transform: translateY(-5px); /* Hover effect */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Event details */
+        .event-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .event-details {
+            font-size: 14px;
+            margin-bottom: 5px;
         }
 
         /* Event description truncation */
@@ -104,7 +125,6 @@
             -webkit-line-clamp: 20;    /* Limit to 3 lines */
             line-clamp: 20;
             -webkit-box-orient: vertical; /* Define the box as a vertical box for clamping */
-                    /* Limit the height to prevent it from growing too large */
         }
 
         /* Ensure horizontal scrolling works smoothly on mouse scroll */
