@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Registrations - Eventra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 210px;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+        }
+
+        .sidebar h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            margin-top: 0px;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .sidebar button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Main content container */
+        .main-content {
+            flex: 1;
+            margin-left: 230px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .main-content h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Registration list styling */
+        .registration-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .registration-box {
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration-box h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .registration-box p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .registration-box button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .registration-box button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 160px;
+            }
+
+            .main-content {
+                margin-left: 180px;
+            }
+
+            .registration-box h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h1>Evèntra</h1>
+        <button onclick="window.location.href='home.html'">Home</button>
+        <button onclick="window.location.href='webpage.html'">My Registrations</button>
+        <button onclick="alert('Under construction')">Leaderboard</button>
+        <button onclick="window.location.href='profile.html'">Profile</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>My Registrations</h2>
+
+        <!-- Placeholder for registered events -->
+        <div class="registration-container">
+            <!-- Event 1 -->
+            <div class="registration-box">
+                <h3>Event Title 1</h3>
+                <p><strong>Date:</strong> 30/12/2024</p>
+                <p><strong>Time:</strong> 12:00 PM to 02:00 PM</p>
+                <p><strong>Venue:</strong> Convention Center</p>
+                <button onclick="alert('Event details coming soon!')">View Details</button>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="registration-box">
+                <h3>Event Title 2</h3>
+                <p><strong>Date:</strong> 02/01/2025</p>
+                <p><strong>Time:</strong> 10:00 AM to 01:00 PM</p>
+                <p><strong>Venue:</strong> Auditorium Hall</p>
+                <button onclick="alert('Event details coming soon!')">View Details</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
