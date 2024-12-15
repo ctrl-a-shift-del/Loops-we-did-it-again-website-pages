@@ -1,34 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>Admin Sign Up - Eventra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <style>
-        /* Original CSS styles */
-        body {
-            font-family: 'Poppins', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            color: #333; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-            overflow-y: auto; 
-            background-color: #f0f0f0; 
-        }
-        .login-container {
-            background-color: rgba(255, 255, 255, 0.9); 
-            padding: 20px; 
-            border-radius: 12px; 
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-            width: 100%; 
-            max-width: 400px; 
-            box-sizing: border-box; 
-=======
     <title>Sign Up - Eventra</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
@@ -79,36 +54,17 @@
             max-width: 400px;
             box-sizing: border-box;
             margin: 20px;
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         }
+
         .login-title {
-<<<<<<< HEAD
-            font-size: 26px; 
-            font-weight: bold; 
-            text-align: center; 
-            color: #00e5ff; 
-            margin-bottom: 20px; 
-=======
             font-size: 26px;
             font-weight: bold;
             text-align: center;
             color: white; /* White text for "Sign Up" */
             margin-bottom: 20px;
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         }
+
         .input-field {
-<<<<<<< HEAD
-            width: 100%; 
-            padding: 12px; 
-            margin: 10px 0; 
-            border: 1px solid #ccc; 
-            border-radius: 8px; 
-            font-size: 16px; 
-        }
-        .input-field:focus {
-            border-color: #00e5ff; 
-            outline: none; 
-=======
             width: 100%;
             padding: 12px;
             margin: 10px 0;
@@ -125,22 +81,9 @@
         .input-field:focus {
             transform: scale(1.03); /* Slight pop-up effect */
             outline: none; /* Remove default outline */
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         }
+
         .login-button {
-<<<<<<< HEAD
-            width: 100%; 
-            padding: 12px; 
-            margin-top: 20px; 
-            background-color: #00e5ff; 
-            border: none; 
-            color: #fff; 
-            font-size: 16px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            border-radius: 8px; 
-            transition: background-color 0.3s; 
-=======
             width: 100%;
             padding: 12px;
             margin-top: 20px;
@@ -152,37 +95,27 @@
             cursor: pointer;
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         }
+
         .login-button:hover {
-<<<<<<< HEAD
-            background-color: #00b8cc; 
-=======
             background-color: white; /* Darker cyan */
             color: black; /* Change text to black */
             transform: translateY(-3px);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         }
+
         .signup-link {
-            text-align: center; 
-            margin-top: 20px; 
+            text-align: center;
+            margin-top: 20px;
         }
+
         .signup-link a {
-<<<<<<< HEAD
-            color: #00e5ff; 
-            text-decoration: none; 
-            font-weight: bold; 
-=======
             color: white;
             text-decoration: none;
             font-weight: bold;
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         }
+
         .signup-link a:hover {
-<<<<<<< HEAD
-            text-decoration: underline; 
-=======
             transform: scale(1.1); /* Slight zoom effect */
             color: #fff; /* Make it brighter */
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add a glow effect */
@@ -212,13 +145,11 @@
             .login-button {
                 font-size: 14px;
             }
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         }
     </style>
 </head>
+
 <body>
-<<<<<<< HEAD
-=======
 
     <!-- Header with "Eventra" -->
     <h1>
@@ -226,57 +157,25 @@
     </h1>
 
     <!-- Sign up container -->
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
     <div class="login-container">
-        <div class="login-title">Admin Sign Up</div>
-        <form id="adminSignupForm">
-            <input type="text" class="input-field" name="name" placeholder="Enter your name" required>
-            <input type="text" class="input-field" name="clubname" placeholder="Enter your Club name" required>
+        <div class="login-title">Sign Up</div>
+
+        <form action="dashboard.html" method="POST">
+            <input type="name" class="input-field" name="Name" placeholder="Enter your name" required>
+            <input type="email" class="input-field" name="Username" placeholder="Enter your username" required>
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
+            <input type="name" class="input-field" name="Club Name" placeholder="Enter Club name" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
-<<<<<<< HEAD
-            <button type="submit" class="login-button">Sign up</button>
-=======
             <input type="password" class="input-field" name="password" placeholder="Re-enter your password" required>
             <button type="submit" class="login-button">Sign Up</button>
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         </form>
+
         <div class="signup-link">
             <p>Already have an admin account? <a href="adminlogin.html">Sign in here</a></p>
             <p>Want to login as a member? <a href="login.html">Sign in here</a></p>
         </div>
     </div>
 
-    <script>
-        document.getElementById('adminSignupForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            const name = document.querySelector('input[name="name"]').value;
-            const clubname = document.querySelector('input[name="clubname"]').value;
-            const email = document.querySelector('input[name="email"]').value;
-            const password = document.querySelector('input[name="password"]').value;
-
-            try {
-                const response = await fetch('http://localhost:3000/api/users/signup', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ name, clubname, email, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    window.location.href = 'adminhome.html'; // Redirect to admin home if successful
-                } else {
-                    alert(data.error || 'Signup failed'); // Show error message
-                }
-            } catch (error) {
-                console.error('Error during admin signup:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
-    </script>
 </body>
+
 </html>

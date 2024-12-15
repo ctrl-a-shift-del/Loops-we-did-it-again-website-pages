@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Home - Eventra</title>
+    <title>Home - Eventra</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        /* Original CSS styles - retain these */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            margin: 0;
+            padding: 0;
             display: flex;
+            transition: margin-left 0.3s ease;
+            background-color: white; /* White background */
+            color: #333333; /* Default text color */
         }
-        
-        /* Sidebar styles */
+
+        /* Sidebar styling */
         .sidebar {
             width: 220px;
             height: 100vh;
@@ -25,10 +27,7 @@
             box-sizing: border-box;
             position: relative;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-<<<<<<< HEAD
-=======
             transition: all 0.3s ease;
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         }
 
         .sidebar h1 {
@@ -36,9 +35,6 @@
             margin-bottom: 40px;
             font-weight: bold;
             text-align: center;
-<<<<<<< HEAD
-            color: #00e5ff; /* Cyan color */
-=======
             color: #00e5ff;
             cursor: pointer;
             transition: color 0.3s ease, transform 0.6s ease-in-out;
@@ -63,7 +59,6 @@
 
         .sidebar h1 {
             animation: scaleUp 0.6s ease-out forwards;
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
         }
 
         .sidebar button {
@@ -78,13 +73,6 @@
             cursor: pointer;
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s;
-<<<<<<< HEAD
-        }
-
-        .sidebar button:hover {
-            background-color: #616161;
-            transform: translateY(-2px);
-=======
             display: flex;
             align-items: center;
             gap: 10px;
@@ -109,18 +97,105 @@
 
         .sidebar .material-icons {
             font-size: 20px;
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
+        }
+
+        /* Main content container */
+        .main-content {
+            flex: 1;
+            margin-left: 10px;
+            margin-right: 20px;
+            margin-top: 0px;
+            padding: 0px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            overflow-x: auto; /* Horizontal scroll enabled */
+        }
+
+        /* Event container for horizontal scrolling */
+        .event-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 10px 0;
+            width: 100%;
+            overflow-x: auto; /* Allow horizontal scrolling */
+            height: 100vh; /* Full screen height */
+            box-sizing: border-box;
+        }
+
+        /* Event box styling */
+        .event-box {
+            width: 500px; /* Fixed width for event box */
+            height: 100%; /* Full height of the container */
+            padding: 20px;
+            background-color: #ffffff; /* White background for event boxes */
+            border: 1px solid #cccccc; /* Subtle border */
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            min-width: 350px; /* Prevent shrinking */
+            color: #333333; /* Text color */
+            transition: all 0.3s ease;
+        }
+
+        /* Styling for event box when hovered */
+        .event-box:hover {
+            background-color: #f1f1f1; /* Light grey background on hover */
+            transform: translateY(-5px); /* Hover effect */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Event details */
+        .event-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .event-details {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Event description truncation */
+        .event-description {
+            overflow: hidden;         /* Hide content that overflows */
+            text-overflow: ellipsis;  /* Show ellipsis (...) when the text overflows */
+            white-space: nowrap;      /* Prevent the text from wrapping onto the next line */
+            display: -webkit-box;     /* Required for multiline ellipsis */
+            -webkit-line-clamp: 20;    /* Limit to 3 lines */
+            line-clamp: 20;
+            -webkit-box-orient: vertical; /* Define the box as a vertical box for clamping */
+        }
+
+        /* Ensure horizontal scrolling works smoothly on mouse scroll */
+        .main-content {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .main-content::-webkit-scrollbar {
+            display: none; /* Hide scrollbar */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 160px;
+            }
+
+            .event-box {
+                width: 100%; /* Full width on small screens */
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="sidebar">
-<<<<<<< HEAD
-        <h1>Admin Dashboard</h1>
-        <button id="createEvent">Create Event</button>
-        <button id="myEvents">My Events</button>
-        <button id="clubProfile">Club Profile</button>
-=======
         <!-- Evèntra now acts as a clickable home button -->
         <h1 onclick="window.location.href='adminhome.html'">Evèntra</h1>
         <button onclick="window.location.href='create-event.html'"><span class="material-icons">edit_calendar</span>Create Event</button>
@@ -128,26 +203,48 @@
         <button onclick="window.location.href='clubprofile.html'"><span class="material-icons">person</span>Club Profile</button>
         <!-- Added the Create Event button -->
         
->>>>>>> 1141aaed459044dc817e28369ad01d19aa04b792
     </div>
 
-    <div class="content" style="margin-left: 240px; padding: 20px;">
-        <h2>Welcome, Admin!</h2>
-        <p>Select an option from the sidebar to manage your club events.</p>
+    <div class="main-content">
+        <div class="event-container">
+            <!-- Example Event Boxes -->
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 1</div>
+                <div class="event-details">Date: 30/12/2024 to 31/12/2024</div>
+                <div class="event-details">Time: 12:00 PM to 12:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 2</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 3</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 4</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 5</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+        </div>
     </div>
 
-    <script>
-        document.getElementById('createEvent').onclick = function() {
-            window.location.href = 'create-event.html'; // Redirect to create event page
-        };
-
-        document.getElementById('myEvents').onclick = function() {
-            window.location.href = 'created-events.html'; // Redirect to my events page
-        };
-
-        document.getElementById('clubProfile').onclick = function() {
-            window.location.href = 'clubprofile.html'; // Redirect to club profile page
-        };
-    </script>
 </body>
 </html>
