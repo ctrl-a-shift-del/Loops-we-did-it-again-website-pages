@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,15 +33,8 @@
 
         /* Keyframes for fade-in animation */
         @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         /* Login container styling */
@@ -50,7 +42,6 @@
             background-color: #0f0f0f; /* Dark grey container */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: none; /* No initial glow */
             width: 100%;
             max-width: 400px;
             box-sizing: border-box;
@@ -69,28 +60,28 @@
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            border: none; /* No border */
+            border: none; 
             border-radius: 8px;
             font-size: 16px;
             box-sizing: border-box;
-            background-color: #222; /* Darker input background */
-            color: white; /* White text */
-            transition: transform 0.3s ease; /* Smooth scale transition */
+            background-color: #222; 
+            color: white; 
+            transition: transform 0.3s ease;
         }
 
         .input-field:hover,
         .input-field:focus {
-            transform: scale(1.03); /* Slight pop-up effect */
-            outline: none; /* Remove default outline */
+            transform: scale(1.03); 
+            outline: none; 
         }
 
         .login-button {
             width: 100%;
             padding: 12px;
             margin-top: 20px;
-            background-color: black; /* Initial background */
+            background-color: black; 
             border: none;
-            color: white; /* Initial text color */
+            color: white; 
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -99,10 +90,10 @@
         }
 
         .login-button:hover {
-            background-color: white; /* Change background to white */
-            color: black; /* Change text to black */
+            background-color: white; 
+            color: black; 
             transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
         }
 
         .signup-link {
@@ -117,10 +108,10 @@
         }
 
         .signup-link a:hover {
-            transform: scale(1.1); /* Slight zoom effect */
-            color: #fff; /* Make it brighter */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add a glow effect */
-            transition: transform 0.3s, text-shadow 0.3s; /* Smooth animation */
+            transform: scale(1.1); 
+            color: #fff; 
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+            transition: transform 0.3s, text-shadow 0.3s; 
         }
 
         /* Responsive styling for smaller screens */
@@ -150,28 +141,51 @@
 </head>
 
 <body>
-
-    <!-- Header with "Eventra" -->
     <h1>
         <span style="color: #4285F4;">E</span><span style="color: #EA4335;">v</span><span style="color: #FBBC05;">è</span><span style="color: #34A853;">n</span><span style="color: #EA4335;">t</span><span style="color: #FBBC05;">r</span><span style="color: #4285F4;">a</span>
     </h1>
-
-    <!-- Login container -->
+    
     <div class="login-container">
         <div class="login-title">Login</div>
-
-        <form action="dashboard.html" method="POST">
+        <form id="loginForm">
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
-            <button type="submit" class="login-button" onclick="window.location.href='home.html'">Login</button>
+            <button type="submit" class="login-button">Login</button>
         </form>
-
         <div class="signup-link">
             <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
             <p>Are you a club admin? <a href="adminlogin.html">Sign in here</a></p>
         </div>
     </div>
 
-</body>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
 
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/users/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    window.location.href = 'home.html'; // Redirect to home if successful
+                } else {
+                    alert(data.error || 'Login failed'); // Show error message
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+</body>
 </html>
