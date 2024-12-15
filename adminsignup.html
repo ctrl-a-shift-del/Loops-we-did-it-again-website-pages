@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +21,7 @@
             flex-direction: column;
         }
 
-        /* Styling for the Eventra logo (this remains consistent) */
+        /* Styling for the Eventra logo */
         h1 {
             font-size: 70px;
             font-weight: 900;
@@ -32,20 +31,20 @@
             animation: fadeIn 2s ease-in-out forwards; /* Apply fade-in animation */
         }
 
+        /* Keyframes for fade-in animation */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
                 transform: scale(0.8);
             }
-
             100% {
                 opacity: 1;
                 transform: scale(1);
             }
         }
 
-        /* Login container styling */
-        .login-container {
+        /* Sign-Up container styling */
+        .signup-container {
             background-color: #0f0f0f; /* Dark grey container */
             padding: 20px;
             border-radius: 12px;
@@ -56,7 +55,7 @@
             margin: 20px;
         }
 
-        .login-title {
+        .signup-title {
             font-size: 26px;
             font-weight: bold;
             text-align: center;
@@ -83,39 +82,39 @@
             outline: none; /* Remove default outline */
         }
 
-        .login-button {
+        .signup-button {
             width: 100%;
             padding: 12px;
             margin-top: 20px;
-            background-color: black; /* Cyan color */
+            background-color: black; /* Initial background */
             border: none;
-            color: #fff;
+            color: white; /* Initial text color */
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
 
-        .login-button:hover {
-            background-color: white; /* Darker cyan */
+        .signup-button:hover {
+            background-color: white; /* Change background to white */
             color: black; /* Change text to black */
             transform: translateY(-3px);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
         }
 
-        .signup-link {
+        .signin-link {
             text-align: center;
             margin-top: 20px;
         }
 
-        .signup-link a {
+        .signin-link a {
             color: white;
             text-decoration: none;
             font-weight: bold;
         }
 
-        .signup-link a:hover {
+        .signin-link a:hover {
             transform: scale(1.1); /* Slight zoom effect */
             color: #fff; /* Make it brighter */
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add a glow effect */
@@ -128,13 +127,12 @@
                 font-size: 50px;
             }
 
-            .login-container {
+            .signup-container {
                 padding: 15px;
                 max-width: 90%;
-                min-height: 350px;
             }
 
-            .login-title {
+            .signup-title {
                 font-size: 22px;
             }
 
@@ -142,7 +140,7 @@
                 font-size: 14px;
             }
 
-            .login-button {
+            .signup-button {
                 font-size: 14px;
             }
         }
@@ -151,31 +149,58 @@
 
 <body>
 
-    <!-- Header with "Eventra" -->
     <h1>
         <span style="color: #4285F4;">E</span><span style="color: #EA4335;">v</span><span style="color: #FBBC05;">è</span><span style="color: #34A853;">n</span><span style="color: #EA4335;">t</span><span style="color: #FBBC05;">r</span><span style="color: #4285F4;">a</span>
     </h1>
 
-    <!-- Sign up container -->
-    <div class="login-container">
-        <div class="login-title">Sign Up</div>
+    <div class="signup-container">
+        <div class="signup-title">Sign Up</div>
 
-        <form action="dashboard.html" method="POST">
-            <input type="name" class="input-field" name="Name" placeholder="Enter your name" required>
-            <input type="email" class="input-field" name="Username" placeholder="Enter your username" required>
+        <form id="adminSignupForm">
+            <input type="text" class="input-field" name="name" placeholder="Enter your name" required>
+            <input type="text" class="input-field" name="clubname" placeholder="Enter your Club name" required>
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
-            <input type="name" class="input-field" name="Club Name" placeholder="Enter Club name" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
-            <input type="password" class="input-field" name="password" placeholder="Re-enter your password" required>
-            <button type="submit" class="login-button">Sign Up</button>
+            <button type="submit" class="signup-button">Sign Up</button>
         </form>
 
-        <div class="signup-link">
+        <div class="signin-link">
             <p>Already have an admin account? <a href="adminlogin.html">Sign in here</a></p>
             <p>Want to login as a member? <a href="login.html">Sign in here</a></p>
         </div>
     </div>
 
-</body>
+    <script>
+        document.getElementById('adminSignupForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
 
+            const name = document.querySelector('input[name="name"]').value;
+            const clubname = document.querySelector('input[name="clubname"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/users/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, clubname, email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    window.location.href = 'adminhome.html'; // Redirect to admin home if successful
+                } else {
+                    alert(data.error || 'Signup failed'); // Show error message
+                }
+            } catch (error) {
+                console.error('Error during admin signup:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+
+</body>
 </html>

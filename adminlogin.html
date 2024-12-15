@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +37,6 @@
                 opacity: 0;
                 transform: scale(0.8);
             }
-
             100% {
                 opacity: 1;
                 transform: scale(1);
@@ -50,7 +48,6 @@
             background-color: #0f0f0f; /* Dark grey container */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: none; /* No initial glow */
             width: 100%;
             max-width: 400px;
             box-sizing: border-box;
@@ -61,7 +58,7 @@
             font-size: 26px;
             font-weight: bold;
             text-align: center;
-            color: white; /* Cyan color */
+            color: white; /* White text for "Login" */
             margin-bottom: 20px;
         }
 
@@ -69,7 +66,7 @@
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            border: none;
+            border: none; /* No border */
             border-radius: 8px;
             font-size: 16px;
             box-sizing: border-box;
@@ -82,16 +79,15 @@
         .input-field:focus {
             transform: scale(1.03); /* Slight pop-up effect */
             outline: none; /* Remove default outline */
-            border-color: white; /* Cyan color */
         }
 
         .login-button {
             width: 100%;
             padding: 12px;
             margin-top: 20px;
-            background-color: black; /* Cyan color */
+            background-color: black; /* Initial background */
             border: none;
-            color: white;
+            color: white; /* Initial text color */
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -100,7 +96,7 @@
         }
 
         .login-button:hover {
-            background-color: white; /* Darker cyan */
+            background-color: white; /* Change background to white */
             color: black; /* Change text to black */
             transform: translateY(-3px);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
@@ -133,7 +129,6 @@
             .login-container {
                 padding: 15px;
                 max-width: 90%;
-                min-height: 350px;
             }
 
             .login-title {
@@ -162,11 +157,11 @@
     <div class="login-container">
         <div class="login-title">Admin Login</div>
 
-        <form action="dashboard.html" method="POST">
-            <input type="text" class="input-field" name="Clubname" placeholder="Enter your Clubname" required>
+        <form id="adminLoginForm">
+            <input type="text" class="input-field" name="clubname" placeholder="Enter your Clubname" required>
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
-            <button type="submit" class="login-button" onclick="window.location.href='adminhome.html'">Login</button>
+            <button type="submit" class="login-button">Login</button>
         </form>
 
         <div class="signup-link">
@@ -175,6 +170,36 @@
         </div>
     </div>
 
-</body>
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
 
+            const clubname = document.querySelector('input[name="clubname"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/users/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    window.location.href = 'adminhome.html'; // Redirect to admin home if successful
+                } else {
+                    alert(data.error || 'Login failed'); // Show error message
+                }
+            } catch (error) {
+                console.error('Error during admin login:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+
+</body>
 </html>
