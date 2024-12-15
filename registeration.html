@@ -25,11 +25,9 @@
             padding: 20px;
             box-sizing: border-box;
             position: relative;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Eventra logo animation */
         .sidebar h1 {
             font-size: 30px;
             margin-bottom: 40px;
@@ -37,29 +35,6 @@
             text-align: center;
             color: #00e5ff;
             cursor: pointer;
-            transition: color 0.3s ease, transform 0.6s ease-in-out;
-            opacity: 0;
-            transform: scale(0.8);
-        }
-
-        .sidebar h1:hover {
-            color: #80d5ff;
-        }
-
-        @keyframes scaleUp {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .sidebar h1 {
-            animation: scaleUp 0.6s ease-out forwards;
         }
 
         .sidebar button {
@@ -73,87 +48,90 @@
             font-weight: 500;
             cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .sidebar button:hover {
             background-color: #00e5ff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* Main content container */
         .main-content {
             flex: 1;
             margin-left: 10px;
-            padding: 20px;
+            margin-right: 20px;
+            padding: 0px;
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
             overflow-x: auto;
-            background-color: #ffffff;
+            height: 100vh;
         }
 
-        /* Event container for horizontal scrolling */
-        .event-container {
+        /* Registration container for horizontal scrolling */
+        .registration-container {
             display: flex;
             flex-direction: row;
             gap: 20px;
             padding: 10px 0;
             width: 100%;
             overflow-x: auto;
-            height: auto;
+            box-sizing: border-box;
         }
 
-        /* Event box styling */
-        .event-box {
+        /* Registration box styling */
+        .registration-box {
             width: 500px;
-            height: auto;
+            height: 100%;
             padding: 20px;
             background-color: #ffffff;
-            border: 1px solid #ddd;
+            border: 1px solid #cccccc;
             border-radius: 8px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
             min-width: 350px;
-            color: #333;
+            color: #333333;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-size: cover;
+            background-position: center;
+            position: relative;
         }
 
-        /* Hover effect for event box */
-        .event-box:hover {
+        .registration-box:hover {
             background-color: #f1f1f1;
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Event details styling */
-        .event-title {
-            font-size: 22px;
+        /* Background box for text */
+        .registration-box .text-background {
+            background-color: rgba(0, 0, 0, 0.5); /* Dark background for text */
+            padding: 15px;
+            border-radius: 8px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: white;
+        }
+
+        .registration-box .text-background .registration-title {
+            font-size: 20px;
             font-weight: bold;
-            color: #00e5ff;
             margin-bottom: 10px;
         }
 
-        .event-details {
+        .registration-box .text-background .registration-details {
             font-size: 14px;
-            margin-bottom: 5px;
-            color: #666;
         }
 
-        .event-description {
-            font-size: 14px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            display: -webkit-box;
-            -webkit-line-clamp: 5;
-            line-clamp: 5;
-            -webkit-box-orient: vertical;
-            color: #777;
+        /* Ensure horizontal scrolling works smoothly on mouse scroll */
+        .main-content {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         .main-content::-webkit-scrollbar {
@@ -166,11 +144,7 @@
                 width: 160px;
             }
 
-            .main-content {
-                margin-left: 160px;
-            }
-
-            .event-box {
+            .registration-box {
                 width: 100%;
             }
         }
@@ -187,42 +161,24 @@
     </div>
 
     <div class="main-content">
-        <div class="event-container">
-            <!-- Event Boxes -->
-            <div class="event-box" onclick="alert('Event details coming soon!')">
-                <div class="event-title">Event Title 1</div>
-                <div class="event-details">Date: 30/12/2024 to 31/12/2024</div>
-                <div class="event-details">Time: 12:00 PM to 12:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
+        <div class="registration-container">
+            <div class="registration-box" style="background-image: url('1.png');" onclick="alert('Event details coming soon!')">
+                <div class="text-background">
+                    <div class="registration-title">Event Title 1</div>
+                    <div class="registration-details">Date: 30/12/2024</div>
+                    <div class="registration-details">Time: 12:00 PM to 02:00 PM</div>
+                    <div class="registration-details">Venue: Convention Center</div>
+                    <div class="registration-details">Status: Live</div>
+                </div>
             </div>
-            <div class="event-box" onclick="alert('Event details coming soon!')">
-                <div class="event-title">Event Title 2</div>
-                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
-                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
-            </div>
-            <div class="event-box" onclick="alert('Event details coming soon!')">
-                <div class="event-title">Event Title 3</div>
-                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
-                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
-            </div>
-            <div class="event-box" onclick="alert('Event details coming soon!')">
-                <div class="event-title">Event Title 4</div>
-                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
-                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
-            </div>
-            <div class="event-box" onclick="alert('Event details coming soon!')">
-                <div class="event-title">Event Title 5</div>
-                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
-                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
+            <div class="registration-box" style="background-image: url('2.png');" onclick="alert('Event details coming soon!')">
+                <div class="text-background">
+                    <div class="registration-title">Event Title 2</div>
+                    <div class="registration-details">Date: 02/01/2025</div>
+                    <div class="registration-details">Time: 10:00 AM to 01:00 PM</div>
+                    <div class="registration-details">Venue: Auditorium Hall</div>
+                    <div class="registration-details">Status: Expired</div>
+                </div>
             </div>
         </div>
     </div>
