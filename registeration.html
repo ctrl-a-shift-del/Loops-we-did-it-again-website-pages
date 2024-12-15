@@ -66,6 +66,7 @@
             grid-template-columns: 1fr;
             gap: 20px;
             overflow-x: auto;
+            height: 100vh;
         }
 
         /* Registration container for horizontal scrolling */
@@ -76,7 +77,6 @@
             padding: 10px 0;
             width: 100%;
             overflow-x: auto;
-            height: 100vh;
             box-sizing: border-box;
         }
 
@@ -95,6 +95,9 @@
             min-width: 350px;
             color: #333333;
             transition: all 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            position: relative;
         }
 
         .registration-box:hover {
@@ -103,16 +106,26 @@
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Registration details */
-        .registration-title {
+        /* Background box for text */
+        .registration-box .text-background {
+            background-color: rgba(0, 0, 0, 0.5); /* Dark background for text */
+            padding: 15px;
+            border-radius: 8px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: white;
+        }
+
+        .registration-box .text-background .registration-title {
             font-size: 20px;
             font-weight: bold;
             margin-bottom: 10px;
         }
 
-        .registration-details {
+        .registration-box .text-background .registration-details {
             font-size: 14px;
-            margin-bottom: 5px;
         }
 
         /* Ensure horizontal scrolling works smoothly on mouse scroll */
@@ -149,19 +162,23 @@
 
     <div class="main-content">
         <div class="registration-container">
-            <div class="registration-box" onclick="alert('Event details coming soon!')">
-                <div class="registration-title">Event Title 1</div>
-                <div class="registration-details">Date: 30/12/2024</div>
-                <div class="registration-details">Time: 12:00 PM to 02:00 PM</div>
-                <div class="registration-details">Venue: Convention Center</div>
-                <div class="registration-details">Status: Live</div>
+            <div class="registration-box" style="background-image: url('1.png');" onclick="alert('Event details coming soon!')">
+                <div class="text-background">
+                    <div class="registration-title">Event Title 1</div>
+                    <div class="registration-details">Date: 30/12/2024</div>
+                    <div class="registration-details">Time: 12:00 PM to 02:00 PM</div>
+                    <div class="registration-details">Venue: Convention Center</div>
+                    <div class="registration-details">Status: Live</div>
+                </div>
             </div>
-            <div class="registration-box" onclick="alert('Event details coming soon!')">
-                <div class="registration-title">Event Title 2</div>
-                <div class="registration-details">Date: 02/01/2025</div>
-                <div class="registration-details">Time: 10:00 AM to 01:00 PM</div>
-                <div class="registration-details">Venue: Auditorium Hall</div>
-                <div class="registration-details">Status: Expired</div>
+            <div class="registration-box" style="background-image: url('2.png');" onclick="alert('Event details coming soon!')">
+                <div class="text-background">
+                    <div class="registration-title">Event Title 2</div>
+                    <div class="registration-details">Date: 02/01/2025</div>
+                    <div class="registration-details">Time: 10:00 AM to 01:00 PM</div>
+                    <div class="registration-details">Venue: Auditorium Hall</div>
+                    <div class="registration-details">Status: Expired</div>
+                </div>
             </div>
         </div>
     </div>
