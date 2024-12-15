@@ -6,6 +6,7 @@
     <title>Profile - Eventra</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
+        /* General Styling */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -13,19 +14,21 @@
             display: flex;
             background-color: #f9f9f9;
             color: #333;
-            transition: margin-left 0.3s ease;
+            height: 100vh; /* Ensures full height for fixed layout */
+            overflow: hidden; /* Prevents body scrolling */
         }
 
-        /* Sidebar styling */
+        /* Sidebar Styling */
         .sidebar {
             width: 220px;
-            height: 100vh;
+            height: 100vh; /* Full height */
             background-color: #212121;
             color: #fff;
             padding: 20px;
-            box-sizing: border-box;
-            position: relative;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            position: fixed; /* Keeps it fixed on the left */
+            left: 0;
+            top: 0;
         }
 
         .sidebar h1 {
@@ -34,6 +37,7 @@
             font-weight: bold;
             text-align: center;
             color: #00e5ff; /* Cyan color */
+            cursor: pointer;
         }
 
         .sidebar button {
@@ -44,52 +48,104 @@
             border: none;
             color: #fff;
             font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
         }
 
         .sidebar button:hover {
-            background-color: #00e5ff; /* Cyan color */
-            transform: translateY(-2px);
+            background-color: #00e5ff;
         }
 
-        /* Main content container */
+        /* Main Content Styling */
         .main-content {
             flex: 1;
-            margin-left: 20px;
-            padding: 30px;
+            margin-left: 260px; /* Creates space for the fixed sidebar */
+            padding: 20px;
+            height: 100vh; /* Full viewport height */
+            overflow-y: auto; /* Enables scrolling only for this section */
+            box-sizing: border-box;
         }
 
-        .profile-section {
+        .profile-section, .badges-section, .actions-section {
             background-color: #fff;
             padding: 25px;
             border: 1px solid #ddd;
             border-radius: 12px;
-            box-sizing: border-box;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
-        .profile-title {
+        .profile-title, .badges-title, .actions-title {
             font-size: 26px;
             font-weight: bold;
             margin-bottom: 20px;
-            color: #00e5ff; /* Cyan color */
+            color: #00e5ff;
         }
 
-        .profile-details {
-            font-size: 16px;
-            line-height: 1.8;
+        .badge-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .badge-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #212121;
+        }
+
+        .badge-description {
+            font-size: 14px;
             color: #555;
         }
 
-        .profile-details p {
-            margin: 10px 0;
+        /* More Actions Buttons */
+        .actions-buttons {
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+            gap: 10px; /* Add spacing between buttons */
         }
 
-        .profile-details strong {
-            color: #212121;
+        .actions-buttons button {
+            width: 100%; /* Full width of the parent container */
+            padding: 12px;
+            font-size: 16px;
+             /* Default border for all buttons */
+            border-radius: 8px;
+             /* Default fill color */
+             /* Default text color */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Change Password and Sign Out Buttons */
+        .btn-change-password,
+        .btn-sign-out {
+            border-color: #ccc;
+            border: 1px solid #ccc; /* Light grey border */
+            color: #333; /* Dark text color */
+        }
+
+        .btn-change-password:hover,
+        .btn-sign-out:hover {
+            background-color: #ccc;
+            border: 1px solid #ccc; /* Grey background on hover */
+            color: #fff; /* White text on hover */
+        }
+
+        /* Delete Account Button */
+        .btn-delete {
+            border-color: #ff0000;
+            border: 1px solid red; /* Red border */
+            color: #ff0000; /* Red text */
+        }
+
+        .btn-delete:hover {
+            background-color: #ff0000;
+            border: 1px solid red; /* Red background on hover */
+            color: #fff; /* White text on hover */
         }
 
         /* Responsive Design */
@@ -109,15 +165,21 @@
             }
 
             .main-content {
+                margin-left: 200px;
                 padding: 15px;
             }
 
-            .profile-section {
+            .profile-section, .badges-section, .actions-section {
                 padding: 20px;
             }
 
-            .profile-title {
+            .profile-title, .badges-title, .actions-title {
                 font-size: 22px;
+            }
+
+            .actions-buttons button {
+                width: 100%;
+                font-size: 14px;
             }
         }
     </style>
@@ -125,9 +187,8 @@
 <body>
 
     <div class="sidebar">
-        <h1>Evèntra</h1>
-        <button onclick="window.location.href='home.html'">Home</button>
-        <button onclick="window.location.href='webpage.html'">My Registrations</button>
+        <h1 onclick="window.location.href='home.html'">Evèntra</h1>
+        <button onclick="window.location.href='registeration.html'">My Registrations</button>
         <button onclick="alert('Under construction')">Leaderboard</button>
         <button onclick="window.location.href='profile.html'">Profile</button>
     </div>
@@ -135,12 +196,30 @@
     <div class="main-content">
         <div class="profile-section">
             <div class="profile-title">User Profile</div>
-            <div class="profile-details">
-                <p><strong>Name:</strong> John Doe</p>
-                <p><strong>Email:</strong> johndoe@example.com</p>
-                <p><strong>Phone:</strong> +1 234 567 890</p>
-                <p><strong>Joined On:</strong> January 1, 2023</p>
-                <p><strong>About Me:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel orci a eros pharetra luctus. Curabitur auctor, purus at faucibus vestibulum, ipsum mi tincidunt magna, nec tincidunt odio libero vitae purus.</p>
+            <p><strong>Username:</strong> John_Doe01</p>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Number of events participated:</strong> 10</p>
+        </div>
+
+        <div class="badges-section">
+            <div class="badges-title">Badges</div>
+            <div class="badge-box">
+                <div class="badge-name">Event Enthusiast</div>
+                <div class="badge-description">Awarded for participating in 5 events.</div>
+            </div>
+            <div class="badge-box">
+                <div class="badge-name">Top Performer</div>
+                <div class="badge-description">Awarded for securing a top 3 position in any event.</div>
+            </div>
+        </div>
+
+        <div class="actions-section">
+            <div class="actions-title">More Actions</div>
+            <div class="actions-buttons">
+                <button class="btn-change-password" onclick="alert('Under construction')">Change Password</button>
+                <button class="btn-sign-out" onclick="window.location.href='login.html'">Sign Out</button>
+                <button class="btn-delete" onclick="alert('Under construction')">Delete Account</button>
             </div>
         </div>
     </div>

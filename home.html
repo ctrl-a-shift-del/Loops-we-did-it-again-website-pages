@@ -34,7 +34,10 @@
             font-weight: bold;
             text-align: center;
             color: #00e5ff; /* Cyan color */
+            cursor: pointer;
         }
+
+        
 
         .sidebar button {
             width: 100%;
@@ -152,48 +155,49 @@
 <body>
 
     <div class="sidebar">
-        <h1>Evèntra</h1>
-        <button onclick="window.location.href='webpage.html'">My Registrations</button>
+        <!-- Evèntra now acts as a clickable home button -->
+        <h1 onclick="window.location.href='home.html'">Evèntra</h1>
+        <button onclick="window.location.href='registeration.html'">My Registrations</button>
         <button onclick="alert('Under construction')">Leaderboard</button>
-        <!-- Updated Profile button to redirect to profile.html -->
         <button onclick="window.location.href='profile.html'">Profile</button>
     </div>
 
     <div class="main-content">
         <div class="event-container">
+            <!-- Example Event Boxes -->
             <div class="event-box" onclick="alert('Under construction')">
                 <div class="event-title">Event Title 1</div>
                 <div class="event-details">Date: 30/12/2024 to 31/12/2024</div>
                 <div class="event-details">Time: 12:00 PM to 12:00 PM</div>
-                <div class="event-details">Venue: Convection Centre</div>
+                <div class="event-details">Venue: Convention Centre</div>
                 <div class="event-description">Short description of the event goes here...</div>
             </div>
             <div class="event-box" onclick="alert('Under construction')">
                 <div class="event-title">Event Title 2</div>
                 <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
                 <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
-                <div class="event-details">Venue: Convection Centre</div>
+                <div class="event-details">Venue: Convention Centre</div>
                 <div class="event-description">Short description of the event goes here...</div>
             </div>
             <div class="event-box" onclick="alert('Under construction')">
                 <div class="event-title">Event Title 3</div>
-                <div class="event-details">Date: 02/01/2024</div>
-                <div class="event-details">Time: 04:00 AM</div>
-                <div class="event-details">Venue: Convection Centre</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
                 <div class="event-description">Short description of the event goes here...</div>
             </div>
             <div class="event-box" onclick="alert('Under construction')">
                 <div class="event-title">Event Title 4</div>
-                <div class="event-details">Date: 05/01/2024</div>
-                <div class="event-details">Time: 09:00 AM</div>
-                <div class="event-details">Venue: Grand Hall</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
                 <div class="event-description">Short description of the event goes here...</div>
             </div>
             <div class="event-box" onclick="alert('Under construction')">
                 <div class="event-title">Event Title 5</div>
-                <div class="event-details">Date: 10/01/2024</div>
-                <div class="event-details">Time: 11:00 AM</div>
-                <div class="event-details">Venue: Central Park</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
                 <div class="event-description">Short description of the event goes here...</div>
             </div>
         </div>
