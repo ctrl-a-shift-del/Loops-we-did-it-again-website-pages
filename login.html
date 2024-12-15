@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Eventra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Centering everything */
+        }
+
+        h1 {
+            font-size: 70px; /* Increased size for the title */
+            font-weight: bold;
+            margin-top: -150px; /* Added some space from the top */
+            margin-bottom: -25px; /* Added space below the title */
+        }
+
+        .small-text {
+            font-size: 13px; /* Smaller size for the new text */
+            color: #000;
+            margin-top: 0px;
+            margin-bottom: 80px; /* Added some space between title and new text */
+        }
+
+        .signup-text {
+            font-size: 11px;
+            color: #000;
+            margin: 0px ;
+        }
+
+        .input-field {
+            width: 200px; /* Set width for all input fields */
+            padding: 10px;
+            margin: 7px 0;
+            border: 2px solid #000;
+            border-radius: 8px;
+            background-color: transparent;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .lets-socialize-btn {
+            width: 200px; /* Same width as input fields */
+            padding: 12px;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 50px; /* Rounded corners like iPhone style */
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 7px;
+        }
+
+        .lets-socialize-btn:hover {
+            background-color: black;
+            color: white;
+        }
+
+        /* Add a container to align everything vertically */
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full screen height */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Evèntra</h1> <!-- Title at the top, larger size -->
+
+        <p class="small-text">Event manager for clubs and societies</p> <!-- New small text below the title -->
+
+        <p class="signup-text">If you're a new user, an account <br> will be created automatically.</p> <!-- Signup text -->
+
+        <input class="input-field" type="text" placeholder="Enter Username">
+        <input class="input-field" type="password" placeholder="Enter Password">
+
+        <button class="lets-socialize-btn" onclick="location.href='home.html'">Let's socialize!</button> <!-- Only "Let's socialize" button -->
+    </div>
+
+</body>
+</html>
