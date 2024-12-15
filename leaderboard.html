@@ -14,9 +14,10 @@
             display: flex;
             background-color: #f9f9f9;
             color: #333;
-            height: 100vh;
-            overflow: hidden;
+            height: auto; /* Allow body height to expand */
+            overflow: auto; /* Enable scrolling */
         }
+
 
         .sidebar {
             width: 220px;
@@ -25,7 +26,9 @@
             color: #fff;
             padding: 20px;
             box-sizing: border-box;
-            position: relative;
+            position: fixed; /* Fix the sidebar to the left */
+            top: 0; /* Align it to the top */
+            left: 0;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -60,8 +63,10 @@
         /* Main Content */
         .main-content {
             flex: 1;
-            margin: 10px 20px;
+            margin-left: 240px; /* Give space for the sidebar */
             padding: 20px;
+            overflow-y: auto; /* Allow scrolling in the main content */
+            height: 100vh; /* Ensure it covers the full height */
         }
 
         .main-content h2 {
