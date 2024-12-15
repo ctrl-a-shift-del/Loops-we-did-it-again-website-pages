@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            background-color: #f9f9f9;
+            background-color: #1e1e1e;
             color: #333;
             height: 100vh; /* Ensures full height for fixed layout */
             overflow: hidden; /* Prevents body scrolling */
@@ -23,7 +23,7 @@
         .sidebar {
             width: 220px;
             height: 100vh;
-            background-color: #212121;
+            background-color: #212121; /* Same as before */
             color: #fff;
             padding: 20px;
             box-sizing: border-box;
@@ -32,7 +32,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Eventra logo animation */
         .sidebar h1 {
             font-size: 30px;
             margin-bottom: 40px;
@@ -41,15 +40,14 @@
             color: #00e5ff;
             cursor: pointer;
             transition: color 0.3s ease, transform 0.6s ease-in-out;
-            opacity: 0; /* Initially hidden */
-            transform: scale(0.8); /* Start with smaller size */
+            opacity: 0;
+            transform: scale(0.8);
         }
 
         .sidebar h1:hover {
             color: #80d5ff;
         }
 
-        /* Scale-up animation */
         @keyframes scaleUp {
             0% {
                 opacity: 0;
@@ -61,7 +59,6 @@
             }
         }
 
-        /* Trigger the animation */
         .sidebar h1 {
             animation: scaleUp 0.6s ease-out forwards;
         }
@@ -83,10 +80,21 @@
             gap: 10px;
         }
 
-        .sidebar button:hover {
-            background-color: #00e5ff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* Sidebar button hover colors */
+        .sidebar button:nth-child(1):hover {
+            background-color: #4285F4; /* Blue */
+        }
+
+        .sidebar button:nth-child(2):hover {
+            background-color: #EA4335; /* Red */
+        }
+
+        .sidebar button:nth-child(3):hover {
+            background-color: #FBBC05; /* Yellow */
+        }
+
+        .sidebar button:nth-child(4):hover {
+            background-color: #34A853; /* Green */
         }
 
         .sidebar .material-icons {
@@ -101,12 +109,13 @@
             height: 100vh; /* Full viewport height */
             overflow-y: auto; /* Enables scrolling only for this section */
             box-sizing: border-box;
+            
         }
 
         .profile-section, .badges-section, .actions-section {
-            background-color: #fff;
+            background-color: #383636;
             padding: 20px;
-            border: 1px solid #ddd;
+            border: 1px solid #000000;
             border-radius: 12px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
@@ -120,7 +129,7 @@
         }
 
         .badge-box {
-            background-color: #f9f9f9;
+            background-color: #5b5b5b;
             border: 1px solid #ccc;
             border-radius: 8px;
             padding: 15px;
@@ -135,7 +144,7 @@
 
         .badge-description {
             font-size: 14px;
-            color: #555;
+            color: #e5e5e5;
         }
 
         /* More Actions Buttons */
@@ -224,7 +233,7 @@
 <body>
 
     <div class="sidebar">
-        <h1 onclick="window.location.href='home.html'">Evèntra</h1>
+        <h1 onclick="window.location.href='home.html'"><span style="color: #4285F4;">E</span><span style="color: #EA4335;">v</span><span style="color: #FBBC05;">è</span><span style="color: #34A853;">n</span><span style="color: #EA4335;">t</span><span style="color: #FBBC05;">r</span><span style="color: #4285F4;">a</span></h1>
         <button onclick="window.location.href='registeration.html'"><span class="material-icons">event_note</span>My Registrations</button>
         <button onclick="window.location.href='leaderboard.html'"><span class="material-icons">leaderboard</span>Leaderboard</button>
         <button onclick="window.location.href='profile.html'"><span class="material-icons">person</span>Profile</button>
@@ -232,11 +241,11 @@
 
     <div class="main-content">
         <div class="profile-section">
-            <div class="profile-title">User Profile</div>
-            <p><strong>Username:</strong> John_Doe01</p>
-            <p><strong>Name:</strong> John Doe</p>
-            <p><strong>Email:</strong> johndoe@example.com</p>
-            <p><strong>Number of events participated:</strong> 10</p>
+            <div class="profile-title"><span style="color: #00e5ff;">User Profile</span></div>
+            <p><strong><span style="color: #00e5ff;">Username:</span></strong><span style="color: #ffffff;"> John_Doe01</span></p>
+            <p><strong><span style="color: #00e5ff;">Name:</span></strong><span style="color: #ffffff;"> John Doe</span></p>
+            <p><strong><span style="color: #00e5ff;">Email:</span></strong><span style="color: #ffffff;"> johndoe@example.com</span></p>
+            <p><strong><span style="color: #00e5ff;">Number of events participated:</span></strong><span style="color: #ffffff;"> 10</span></p>
         </div>
 
         <div class="badges-section">
