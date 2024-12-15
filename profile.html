@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Eventra</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         /* General Styling */
         body {
@@ -27,9 +28,11 @@
             padding: 20px;
             box-sizing: border-box;
             position: relative;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
+        /* Eventra logo animation */
         .sidebar h1 {
             font-size: 30px;
             margin-bottom: 40px;
@@ -37,6 +40,30 @@
             text-align: center;
             color: #00e5ff;
             cursor: pointer;
+            transition: color 0.3s ease, transform 0.6s ease-in-out;
+            opacity: 0; /* Initially hidden */
+            transform: scale(0.8); /* Start with smaller size */
+        }
+
+        .sidebar h1:hover {
+            color: #80d5ff;
+        }
+
+        /* Scale-up animation */
+        @keyframes scaleUp {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Trigger the animation */
+        .sidebar h1 {
+            animation: scaleUp 0.6s ease-out forwards;
         }
 
         .sidebar button {
@@ -50,12 +77,20 @@
             font-weight: 500;
             cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .sidebar button:hover {
             background-color: #00e5ff;
             transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar .material-icons {
+            font-size: 20px;
         }
 
         /* Main Content Styling */
@@ -190,9 +225,9 @@
 
     <div class="sidebar">
         <h1 onclick="window.location.href='home.html'">Evèntra</h1>
-        <button onclick="window.location.href='registeration.html'">My Registrations</button>
-        <button onclick="window.location.href='leaderboard.html'">Leaderboard</button>
-        <button onclick="window.location.href='profile.html'">Profile</button>
+        <button onclick="window.location.href='registeration.html'"><span class="material-icons">event_note</span>My Registrations</button>
+        <button onclick="window.location.href='leaderboard.html'"><span class="material-icons">leaderboard</span>Leaderboard</button>
+        <button onclick="window.location.href='profile.html'"><span class="material-icons">person</span>Profile</button>
     </div>
 
     <div class="main-content">
