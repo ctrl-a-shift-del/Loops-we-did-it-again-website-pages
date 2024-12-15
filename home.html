@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Eventra</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -77,12 +78,19 @@
             cursor: pointer;
             border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .sidebar button:hover {
             background-color: #00e5ff;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar .material-icons {
+            font-size: 20px;
         }
 
         /* Main content container */
@@ -124,6 +132,18 @@
             color: #333;
             transition: all 0.3s ease;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-box-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .event-box-header .material-icons {
+            font-size: 26px;
+            color: #00e5ff;
         }
 
         /* Hover effect for event box */
@@ -183,51 +203,34 @@
 
     <div class="sidebar">
         <h1 onclick="window.location.href='home.html'">Evèntra</h1>
-        <button onclick="window.location.href='registeration.html'">My Registrations</button>
-        <button onclick="window.location.href='leaderboard.html'">Leaderboard</button>
-        <button onclick="window.location.href='profile.html'">Profile</button>
+        <button onclick="window.location.href='registeration.html'"><span class="material-icons">event_note</span>My Registrations</button>
+        <button onclick="window.location.href='leaderboard.html'"><span class="material-icons">leaderboard</span>Leaderboard</button>
+        <button onclick="window.location.href='profile.html'"><span class="material-icons">person</span>Profile</button>
     </div>
 
     <div class="main-content">
         <div class="event-container">
             <!-- Event Boxes -->
             <div class="event-box" onclick="alert('Under construction')">
-                <div class="event-title">Event Title 1</div>
+                <div class="event-box-header">
+                    <span class="material-icons">event</span>
+                    <div class="event-title">Event Title 1</div>
+                </div>
                 <div class="event-details">Date: 30/12/2024 to 31/12/2024</div>
                 <div class="event-details">Time: 12:00 PM to 12:00 PM</div>
                 <div class="event-details">Venue: Convention Centre</div>
                 <div class="event-description">Short description of the event goes here...</div>
             </div>
             <div class="event-box" onclick="alert('Under construction')">
-                <div class="event-title">Event Title 2</div>
+                <div class="event-box-header">
+                    <span class="material-icons">event</span>
+                    <div class="event-title">Event Title 2</div>
+                </div>
                 <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
                 <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
                 <div class="event-details">Venue: Convention Centre</div>
                 <div class="event-description">Short description of the event goes here...</div>
             </div>
             <div class="event-box" onclick="alert('Under construction')">
-                <div class="event-title">Event Title 3</div>
-                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
-                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
-            </div>
-            <div class="event-box" onclick="alert('Under construction')">
-                <div class="event-title">Event Title 4</div>
-                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
-                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
-            </div>
-            <div class="event-box" onclick="alert('Under construction')">
-                <div class="event-title">Event Title 5</div>
-                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
-                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
-                <div class="event-details">Venue: Convention Centre</div>
-                <div class="event-description">Short description of the event goes here...</div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
+                <div class="event-box-header">
+                    <span class="material-icons">event</span
