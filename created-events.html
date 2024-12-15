@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Created Events - Eventra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: white;
+            color: #333333;
+            height: 100vh;
+            overflow: auto; /* Allow scrolling of the entire page */
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background-color: #212121;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h1 {
+            font-size: 30px;
+            margin-bottom: 40px;
+            font-weight: bold;
+            text-align: center;
+            color: #00e5ff; /* Cyan color */
+            cursor: pointer;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            background-color: #424242;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .sidebar button:hover {
+            background-color: #00e5ff; /* Cyan color */
+            transform: translateY(-2px);
+        }
+
+        /* Main content container */
+        .main-content {
+            margin-left: 230px;
+             /* Adjusted for sidebar width */
+            padding: 0px;
+            width: calc(100% - 240px); /* Adjust content width */
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            overflow-x: auto; /* Horizontal scroll enabled */
+        }
+
+        /* Event container for horizontal scrolling */
+        .event-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 10px 0;
+            width: 100%;
+            overflow-x: auto; /* Allow horizontal scrolling */
+            height: 100vh; /* Full screen height */
+            box-sizing: border-box;
+        }
+
+        /* Event box styling */
+        .event-box {
+            width: 500px; /* Fixed width for event box */
+            height: 100%; /* Full height of the container */
+            padding: 20px;
+            background-color: #ffffff; /* White background for event boxes */
+            border: 1px solid #cccccc; /* Subtle border */
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            min-width: 350px; /* Prevent shrinking */
+            color: #333333; /* Text color */
+            transition: all 0.3s ease;
+        }
+
+        /* Styling for event box when hovered */
+        .event-box:hover {
+            background-color: #f1f1f1; /* Light grey background on hover */
+            transform: translateY(-5px); /* Hover effect */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Event details */
+        .event-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .event-details {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* Event description truncation */
+        .event-description {
+            overflow: hidden;         /* Hide content that overflows */
+            text-overflow: ellipsis;  /* Show ellipsis (...) when the text overflows */
+            white-space: nowrap;      /* Prevent the text from wrapping onto the next line */
+            display: -webkit-box;     /* Required for multiline ellipsis */
+            -webkit-line-clamp: 20;    /* Limit to 3 lines */
+            line-clamp: 20;
+            -webkit-box-orient: vertical; /* Define the box as a vertical box for clamping */
+        }
+
+        /* Ensure horizontal scrolling works smoothly on mouse scroll */
+        .main-content {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .main-content::-webkit-scrollbar {
+            display: none; /* Hide scrollbar */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 160px;
+            }
+
+            .event-box {
+                width: 100%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <!-- Sidebar with Admin buttons -->
+        <h1 onclick="window.location.href='home.html'">Evèntra</h1>
+        <button onclick="window.location.href='create-event.html'">Create Event</button>
+        <button onclick="window.location.href='created-events.html'">My Events</button>
+        <button onclick="window.location.href='clubprofile.html'">Club Profile</button>
+    </div>
+
+    <div class="main-content">
+        <div class="event-container">
+            <!-- Example Event Boxes -->
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 1</div>
+                <div class="event-details">Date: 30/12/2024 to 31/12/2024</div>
+                <div class="event-details">Time: 12:00 PM to 12:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 2</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 3</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 4</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+            <div class="event-box" onclick="alert('Under construction')">
+                <div class="event-title">Event Title 5</div>
+                <div class="event-details">Date: 01/01/2024 to 01/01/2024</div>
+                <div class="event-details">Time: 12:00 PM to 04:00 PM</div>
+                <div class="event-details">Venue: Convention Centre</div>
+                <div class="event-description">Short description of the event goes here...</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
