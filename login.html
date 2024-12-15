@@ -8,67 +8,80 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: white;
             margin: 0;
             padding: 0;
-            text-align: center; /* Centering everything */
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        h1 {
-            font-size: 70px; /* Increased size for the title */
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        .login-title {
+            font-size: 26px;
             font-weight: bold;
-            margin-top: -150px; /* Added some space from the top */
-            margin-bottom: -25px; /* Added space below the title */
-        }
-
-        .small-text {
-            font-size: 13px; /* Smaller size for the new text */
-            color: #000;
-            margin-top: 0px;
-            margin-bottom: 80px; /* Added some space between title and new text */
-        }
-
-        .signup-text {
-            font-size: 11px;
-            color: #000;
-            margin: 0px ;
+            text-align: center;
+            color: #00e5ff; /* Cyan color */
+            margin-bottom: 30px;
         }
 
         .input-field {
-            width: 200px; /* Set width for all input fields */
-            padding: 10px;
-            margin: 7px 0;
-            border: 2px solid #000;
-            border-radius: 8px;
-            background-color: transparent;
-            font-size: 14px;
-            color: #000;
-        }
-
-        .lets-socialize-btn {
-            width: 200px; /* Same width as input fields */
+            width: 100%;
             padding: 12px;
-            background-color: white;
-            color: black;
-            border: 2px solid black;
-            border-radius: 50px; /* Rounded corners like iPhone style */
-            font-size: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus {
+            border-color: #00e5ff; /* Cyan color */
+            outline: none;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #00e5ff; /* Cyan color */
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
-            margin-top: 7px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
         }
 
-        .lets-socialize-btn:hover {
-            background-color: black;
-            color: white;
+        .login-button:hover {
+            background-color: #00b8cc; /* Darker cyan */
         }
 
-        /* Add a container to align everything vertically */
-        .login-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full screen height */
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .signup-link a {
+            color: #00e5ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
         }
 
     </style>
@@ -76,16 +89,17 @@
 <body>
 
     <div class="login-container">
-        <h1>Evèntra</h1> <!-- Title at the top, larger size -->
+        <div class="login-title">Login</div>
 
-        <p class="small-text">Event manager for clubs and societies</p> <!-- New small text below the title -->
+        <form action="dashboard.html" method="POST">
+            <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
+            <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
+            <button type="submit" class="login-button" button onclick="window.location.href='home.html'">Login</button>
+        </form>
 
-        <p class="signup-text">If you're a new user, an account <br> will be created automatically.</p> <!-- Signup text -->
-
-        <input class="input-field" type="text" placeholder="Enter Username">
-        <input class="input-field" type="password" placeholder="Enter Password">
-
-        <button class="lets-socialize-btn" onclick="location.href='home.html'">Let's socialize!</button> <!-- Only "Let's socialize" button -->
+        <div class="signup-link">
+            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+        </div>
     </div>
 
 </body>
