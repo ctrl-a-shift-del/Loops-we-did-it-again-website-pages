@@ -6,7 +6,7 @@
     <title>Login - Eventra</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
-        /* Style for the body and video background */
+        /* General body styling */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -17,7 +17,7 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            flex-direction: column; /* Ensure header is above login form */
+            flex-direction: column; /* Header above login form */
         }
 
         /* Full-screen video background */
@@ -31,7 +31,7 @@
             z-index: -1;  /* Places the video behind the content */
         }
 
-        /* Centered header styling */
+        /* Styling for the Eventra logo */
         h1 {
             font-size: 70px;
             font-weight: 900;
@@ -40,9 +40,43 @@
             margin-top: 0;
             margin-bottom: 20px;
             z-index: 1; /* Ensure it's above other elements */
+            animation: fadeIn 2s ease-in-out; /* Fade-in animation */
+            cursor: pointer; /* Pointer cursor for hover effects */
+            transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth scaling and glow effects */
         }
 
-        /* Pop-up animation */
+        h1:hover {
+            transform: scale(1.1); /* Slight scale on hover */
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Subtle glow effect */
+        }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Login container styling with glass effect */
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.2); /* Transparent background for the glass effect */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari support */
+            animation: popup 0.8s ease-out;
+        }
+
+        /* Animation for the login container */
         @keyframes popup {
             0% {
                 transform: scale(0.8);
@@ -55,17 +89,6 @@
             100% {
                 transform: scale(1);
             }
-        }
-
-        .login-container {
-            background-color: rgba(255, 255, 255, 0.9); /* Light background to make text readable */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
-            animation: popup 0.8s ease-out;
         }
 
         .login-title {
@@ -102,11 +125,12 @@
             font-weight: bold;
             cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .login-button:hover {
             background-color: #00b8cc;
+            transform: translateY(-3px); /* Lift effect on hover */
         }
 
         .signup-link {
@@ -123,26 +147,26 @@
         .signup-link a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
 <body>
 
     <!-- Header with "Eventra" -->
-    <h1>Evéntra</h1>
+    <h1>Evèntra</h1>
 
     <!-- Video background -->
     <video autoplay muted loop class="background-video">
         <source src="login_background.mp4" type="video/mp4">
     </video>
 
+    <!-- Login container -->
     <div class="login-container">
         <div class="login-title">Login</div>
 
         <form action="dashboard.html" method="POST">
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
-            <button type="submit" class="login-button">Login</button>
+            <button type="submit" class="login-button" onclick="window.location.href='home.html'">Login</button>
         </form>
 
         <div class="signup-link">
