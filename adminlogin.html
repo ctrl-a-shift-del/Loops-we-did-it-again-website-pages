@@ -74,6 +74,24 @@
             color: white; /* White text */
         }
 
+        .forgot-password {
+            display: block;
+            text-align: right;
+            margin: -10px 0 10px; /* Adjust spacing around the link */
+        }
+
+        .forgot-password a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: text-shadow 0.3s, transform 0.3s;
+        }
+
+        .forgot-password a:hover {
+            transform: scale(1.1); /* Slight zoom effect */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow effect */
+        }
+
         .login-button {
             width: 100%;
             padding: 12px;
@@ -111,6 +129,9 @@
             <input type="text" class="input-field" name="clubname" placeholder="Enter your Clubname" required>
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
+            <div class="forgot-password">
+                <a href="adminforgotpassword.html">Forgot Password?</a>
+            </div>
             <button type="submit" class="login-button">Login</button>
         </form>
 
