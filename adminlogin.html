@@ -72,13 +72,6 @@
             box-sizing: border-box;
             background-color: #222; /* Darker input background */
             color: white; /* White text */
-            transition: transform 0.3s ease; /* Smooth scale transition */
-        }
-
-        .input-field:hover,
-        .input-field:focus {
-            transform: scale(1.03); /* Slight pop-up effect */
-            outline: none; /* Remove default outline */
         }
 
         .login-button {
@@ -92,57 +85,14 @@
             font-weight: bold;
             cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
-
-        .login-button:hover {
-            background-color: white; /* Change background to white */
-            color: black; /* Change text to black */
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
         }
 
         .signup-link {
-            text-align: center;
-            margin-top: 20px;
-        }
+          text-align:center;margin-top:(20 px);
+        } 
 
-        .signup-link a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        .signup-link a {color:white;text-decoration:none;font-weight:bold;} 
 
-        .signup-link a:hover {
-            transform: scale(1.1); /* Slight zoom effect */
-            color: #fff; /* Make it brighter */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add a glow effect */
-            transition: transform 0.3s, text-shadow 0.3s; /* Smooth animation */
-        }
-
-        /* Responsive styling for smaller screens */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 50px;
-            }
-
-            .login-container {
-                padding: 15px;
-                max-width: 90%;
-            }
-
-            .login-title {
-                font-size: 22px;
-            }
-
-            .input-field {
-                font-size: 14px;
-            }
-
-            .login-button {
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 
@@ -150,14 +100,14 @@
 
     <!-- Header with "Eventra" -->
     <h1>
-        <span style="color: #4285F4;">E</span><span style="color: #EA4335;">v</span><span style="color: #FBBC05;">è</span><span style="color: #34A853;">n</span><span style="color: #EA4335;">t</span><span style="color: #FBBC05;">r</span><span style="color: #4285F4;">a</span>
+        <span style="color:#4285F4;">E</span><span style="color:#EA4335;">v</span><span style="color:#FBBC05;">è</span><span style="color:#34A853;">n</span><span style="color:#EA4335;">t</span><span style="color:#FBBC05;">r</span><span style="color:#4285F4;">a</span>
     </h1>
 
     <!-- Login container -->
     <div class="login-container">
         <div class="login-title">Admin Login</div>
 
-        <form id="adminLoginForm">
+        <form id="adminLoginForm" onsubmit="redirectToAdminHome(); return false;">
             <input type="text" class="input-field" name="clubname" placeholder="Enter your Clubname" required>
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
@@ -165,40 +115,15 @@
         </form>
 
         <div class="signup-link">
-            <p>Want to create a new club? <a href="adminsignup.html">Click here</a></p>
-            <p>Want to login as a member? <a href="login.html">Sign in here</a></p>
+          <p>Want to create a new club? <a href="adminsignup.html">Click here</a></p>
+          <p>Want to login as a member? <a href="login.html">Sign in here</a></p>
         </div>
     </div>
 
     <script>
-        document.getElementById('adminLoginForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const clubname = document.querySelector('input[name="clubname"]').value;
-            const email = document.querySelector('input[name="email"]').value;
-            const password = document.querySelector('input[name="password"]').value;
-
-            try {
-                const response = await fetch('http://localhost:3000/api/admins/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    window.location.href = 'adminhome.html'; // Redirect to admin home if successful
-                } else {
-                    alert(data.error || 'Login failed'); // Show error message
-                }
-            } catch (error) {
-                console.error('Error during admin login:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
+      function redirectToAdminHome() {
+          window.location.href = 'adminhome.html'; // Redirect to admin home page
+      }
     </script>
 
 </body>

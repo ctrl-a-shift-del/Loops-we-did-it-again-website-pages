@@ -42,7 +42,6 @@
             background-color: #0f0f0f; /* Dark grey container */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: none; /* No initial glow */
             width: 100%;
             max-width: 400px;
             box-sizing: border-box;
@@ -67,13 +66,6 @@
             box-sizing: border-box;
             background-color: #222; /* Darker input background */
             color: white; /* White text */
-            transition: transform 0.3s ease; /* Smooth scale transition */
-        }
-
-        .input-field:hover,
-        .input-field:focus {
-            transform: scale(1.03); /* Slight pop-up effect */
-            outline: none; /* Remove default outline */
         }
 
         .login-button {
@@ -87,53 +79,14 @@
             font-weight: bold;
             cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
 
-        .login-button:hover {
-             background-color:white ;/* Change background to white */ 
-             color:black ;/* Change text to black */ 
-             transform :translateY(-3 px); 
-             box-shadow :0
-             rgba(255,255,255,.6);
-             /* Glow effect on hover */ 
-         }
+        .signup-link {
+            text-align:center;margin-top:(20 px);
+        } 
 
-         .signup-link {text-align:center;margin-top:
-         (20 px);} 
+        .signup-link a {color:white;text-decoration:none;font-weight:bold;} 
 
-         .signup-link a {color:white;text-decoration:none;font-weight:bold;} 
-
-         .signup-link a:hover {transform:
-         scale(1.1);/* Slight zoom effect */ 
-         color:#fff ;/* Make it brighter */ 
-         text-shadow :0
-         rgba(255,255,255,.8);/* Add a glow effect */ 
-         transition :transform .3s , text-shadow .3s ;/* Smooth animation */ 
-     }
-
-     @media (max-width :600px) { 
-         h1 { 
-             font-size :50px ; 
-         } 
-
-         .login-container { 
-             padding :15px ; 
-             max-width :90% ; 
-         } 
-
-         .login-title { 
-             font-size :22px ; 
-         } 
-
-         .input-field { 
-             font-size :14px ; 
-         } 
-
-         .login-button { 
-             font-size :14px ; 
-         } 
-     }
     </style>
 </head>
 <body>
@@ -142,8 +95,8 @@
     </h1>
     
     <div class="login-container">
-        <div class="login-title">Login</div>
-        <form id="loginForm">
+        <div class="login-title">Member Login</div>
+        <form id="loginForm" onsubmit="redirectToHome(); return false;">
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
             <button type="submit" class="login-button">Login</button>
@@ -155,33 +108,9 @@
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const email = document.querySelector('input[name="email"]').value.trim();
-            const password = document.querySelector('input[name="password"]').value.trim();
-
-            try {
-                const response = await fetch('http://localhost/api/users/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    window.location.href = 'home.html'; // Redirect to home if successful
-                } else {
-                    alert(data.error || 'Login failed'); // Show error message
-                }
-            } catch (error) {
-                console.error('Error during login:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
+        function redirectToHome() {
+          window.location.href = 'home.html'; // Redirect to home page
+        }
     </script>
 </body>
 </html>
