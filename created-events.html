@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            background-color: white;
+            background-color: #1e1e1e;
             color: #333333;
             height: 100vh;
             overflow: auto; /* Allow scrolling of the entire page */
@@ -102,7 +102,7 @@
 
         /* Main content container */
         .main-content {
-            margin-left: 100px;
+            margin-left: 50px;
              /* Adjusted for sidebar width */
             padding: 0px;
             width: calc(100% - 240px); /* Adjust content width */
@@ -123,6 +123,7 @@
             overflow-x: auto; /* Allow horizontal scrolling */
             height: 100vh; /* Full screen height */
             box-sizing: border-box;
+            background-color: #1e1e1e;
         }
 
         /* Event box styling */
@@ -130,8 +131,8 @@
             width: 500px; /* Fixed width for event box */
             height: 100%; /* Full height of the container */
             padding: 20px;
-            background-color: #ffffff; /* White background for event boxes */
-            border: 1px solid #cccccc; /* Subtle border */
+            background-color: #2c2c2c; /* White background for event boxes */
+            border: 1px solid #444; /* Subtle border */
             border-radius: 8px;
             cursor: pointer;
             display: flex;
@@ -144,7 +145,7 @@
 
         /* Styling for event box when hovered */
         .event-box:hover {
-            background-color: #f1f1f1; /* Light grey background on hover */
+            background-color: #373737; /* Light grey background on hover */
             transform: translateY(-5px); /* Hover effect */
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
         }
@@ -153,12 +154,14 @@
         .event-title {
             font-size: 20px;
             font-weight: bold;
+            color: #00e5ff;
             margin-bottom: 10px;
         }
 
         .event-details {
             font-size: 14px;
             margin-bottom: 5px;
+            color: #bdbdbd;
         }
 
         /* Event description truncation */
@@ -170,6 +173,7 @@
             -webkit-line-clamp: 20;    /* Limit to 3 lines */
             line-clamp: 20;
             -webkit-box-orient: vertical; /* Define the box as a vertical box for clamping */
+            color: #bdbdbd;
         }
 
         /* Ensure horizontal scrolling works smoothly on mouse scroll */
