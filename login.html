@@ -91,49 +91,65 @@
         }
 
         .login-button:hover {
-             background-color:white ;/* Change background to white */ 
-             color:black ;/* Change text to black */ 
-             transform :translateY(-3 px); 
-             box-shadow :0
-             rgba(255,255,255,.6);
-             /* Glow effect on hover */ 
-         }
+            background-color: white; /* Change background to white */
+            color: black; /* Change text to black */
+            transform: translateY(-3px); 
+            box-shadow: 0 5px 10px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
+        }
 
-         .signup-link {text-align:center;margin-top:
-         (20 px);} 
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+        }
 
-         .signup-link a {color:white;text-decoration:none;font-weight:bold;} 
+        .signup-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-         .signup-link a:hover {transform:
-         scale(1.1);/* Slight zoom effect */ 
-         color:#fff ;/* Make it brighter */ 
-         text-shadow :0
-         rgba(255,255,255,.8);/* Add a glow effect */ 
-         transition :transform .3s , text-shadow .3s ;/* Smooth animation */ 
-     }
+        .signup-link a:hover {
+            transform: scale(1.1); /* Slight zoom effect */
+            color: #fff; /* Make it brighter */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Add a glow effect */
+            transition: transform 0.3s, text-shadow 0.3s; /* Smooth animation */
+        }
+        .forgot-password-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: text-shadow 0.3s, transform 0.3s; /* Smooth animation for glow and zoom */
+        }
 
-     @media (max-width :600px) { 
-         h1 { 
-             font-size :50px ; 
-         } 
+        .forgot-password-link:hover {
+            transform: scale(1.1); /* Slight zoom effect */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow effect */
+        }
 
-         .login-container { 
-             padding :15px ; 
-             max-width :90% ; 
-         } 
 
-         .login-title { 
-             font-size :22px ; 
-         } 
 
-         .input-field { 
-             font-size :14px ; 
-         } 
+        @media (max-width: 600px) { 
+            h1 { 
+                font-size: 50px; 
+            } 
 
-         .login-button { 
-             font-size :14px ; 
-         } 
-     }
+            .login-container { 
+                padding: 15px; 
+                max-width: 90%; 
+            } 
+
+            .login-title { 
+                font-size: 22px; 
+            } 
+
+            .input-field { 
+                font-size: 14px; 
+            } 
+
+            .login-button { 
+                font-size: 14px; 
+            } 
+        }
     </style>
 </head>
 <body>
@@ -146,6 +162,9 @@
         <form id="loginForm">
             <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
             <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
+            <div style="text-align: right; margin-top: -10px; margin-bottom: 10px;">
+                <a href="userforgotpassword.html" class="forgot-password-link">Forgot Password?</a>
+            </div>            
             <button type="submit" class="login-button">Login</button>
         </form>
         <div class="signup-link">
