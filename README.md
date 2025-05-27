@@ -106,7 +106,7 @@ We thank the following individuals for their contributions to this project:
 For inquiries or feedback, please contact Repository owner:
 
 - **Email**: [shail.college.mail.com](mailto:shail.college.mail@google.com)
-- **GitHub**: [github.com/ctrlashiftdel](https://github.com/ctrlashiftdel)
+- **GitHub**: [github.com/ctrlashiftdel](https://github.com/ctrl-a-shift-del)
 
 ---
 
