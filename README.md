@@ -55,11 +55,15 @@ This project aims to build a website to streamline event management for clubs an
 
 This project uses *PHP* and *MySQL*, and is designed to run locally using *XAMPP*. Follow the steps below to set it up.
 
-### 🔧 Prerequisites
+---
+
+### Prerequisites
 
 - [Download XAMPP](https://www.apachefriends.org/index.html) and install it on your system.
 - Any code editor of your choice, Preferably Visual Studio Code. (For editing files)
 - Make sure *Apache* and *MySQL* modules are running via the XAMPP Control Panel. (Open XAMPP and click "start" for Apache and MySQL)
+
+---
 
 ### Folder Setup
 
@@ -72,6 +76,7 @@ This project uses *PHP* and *MySQL*, and is designed to run locally using *XAMPP
 
 4. Download all .php files from this GitHub repository and place them inside the eventra/ folder. (Clone or download zip file of repo) 
 
+---
 
 ### Database Setup 
 
@@ -81,6 +86,7 @@ This project uses *PHP* and *MySQL*, and is designed to run locally using *XAMPP
 4. Select the "eventra.sql" file (downloaded via zip/clone) and upload it.
 5. Congratulations! The database has been successfully imported, hassle-free!
 
+---
 
 ### Launching the Website Locally
 
@@ -90,6 +96,7 @@ This project uses *PHP* and *MySQL*, and is designed to run locally using *XAMPP
 
 3. The index page of the Eventra website should load and ENJOY!
 
+---
 
 ### Optional: Hosting the Website Publicly
 
