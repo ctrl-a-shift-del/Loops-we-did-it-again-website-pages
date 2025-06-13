@@ -137,6 +137,6 @@ For inquiries or feedback, please contact Repository owner:
 
 ---
 
-## License
+## license
 
 This project is not licensed for use. No rights are granted for copying, modifying, distributing, or using this code for commercial or non-commercial purposes. All such actions are strictly prohibited.
