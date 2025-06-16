@@ -15,7 +15,7 @@ This project aims to build a website to streamline event management for clubs an
 
 ## Table of Contents
 
-- [Screenshots](#screenshots)
+- [Website Walkthrough](#walkthrough)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
@@ -24,9 +24,9 @@ This project aims to build a website to streamline event management for clubs an
 
 ---
 
-## Screenshots
+## walkthrough
 
-![Website Screenshots](screenshot1.jpg)
+![Website Walkthrough](https://youtube.com/shorts/jDuLo2dRMvk?feature=share)
 
 ---
 
