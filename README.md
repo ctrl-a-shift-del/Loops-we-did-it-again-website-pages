@@ -26,7 +26,7 @@ This project aims to build a website to streamline event management for clubs an
 
 ## walkthrough
 
-![Website Walkthrough](https://youtube.com/shorts/jDuLo2dRMvk?feature=share)
+[![Watch the Walkthrough](thumbnail.jpg)](https://youtube.com/shorts/jDuLo2dRMvk?feature=share)
 
 ---
 
