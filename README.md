@@ -9,13 +9,11 @@
 
 This project aims to build a website to streamline event management for clubs and societies while encouraging member participation through a gamified leaderboard. The platform enables clubs to create and manage events, members to RSVP and receive reminders, and tracks participation to foster a fun competitive environment.
 
+## [Visit our website](https://www.eventra.wuaze.com) 
 
 ## walkthrough
 
 [![Watch the Walkthrough](thumbnail.jpg)](https://youtube.com/shorts/jDuLo2dRMvk?feature=share)
-
-
-## [Visit our website](https://www.eventra.wuaze.com) 
 
 ---
 
